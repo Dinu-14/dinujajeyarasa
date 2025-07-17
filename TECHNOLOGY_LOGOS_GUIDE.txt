@@ -1,0 +1,107 @@
+TECHNOLOGY LOGOS GUIDE FOR PORTFOLIO
+=====================================
+
+To replace the placeholder images in your Technologies & Tools section, please download the official logos for each technology and save them as PNG files in the img/clients/light/ folder:
+
+FIRST ROW - MAIN TECHNOLOGIES:
+=============================
+1. React.js (1.png)
+   - Download from: https://react.dev/
+   - Look for official React logo (blue atom-like symbol)
+   - Save as: img/clients/light/1.png
+
+2. Next.js (2.png)
+   - Download from: https://nextjs.org/
+   - Get the official Next.js logo (black triangle)
+   - Save as: img/clients/light/2.png
+
+3. Spring Boot (3.png)
+   - Download from: https://spring.io/projects/spring-boot
+   - Get the Spring Boot logo (green leaf)
+   - Save as: img/clients/light/3.png
+
+4. PostgreSQL (4.png)
+   - Download from: https://www.postgresql.org/
+   - Get the PostgreSQL elephant logo (blue elephant)
+   - Save as: img/clients/light/4.png
+
+5. JavaScript (5.png)
+   - Search for "JavaScript logo PNG"
+   - Get the official JS logo (yellow square with "JS")
+   - Save as: img/clients/light/5.png
+
+6. Java (6.png)
+   - Download from: https://www.oracle.com/java/
+   - Get the Java coffee cup logo (red/orange cup)
+   - Save as: img/clients/light/6.png
+
+7. Git (7.png)
+   - Download from: https://git-scm.com/
+   - Get the Git logo (orange/red branching symbol)
+   - Save as: img/clients/light/7.png
+
+8. Visual Studio Code (8.png)
+   - Download from: https://code.visualstudio.com/
+   - Get the VS Code logo (blue square with brackets)
+   - Save as: img/clients/light/8.png
+
+SECOND ROW - ADDITIONAL TECHNOLOGIES:
+====================================
+9. HTML5 (html5.png)
+   - Get the HTML5 logo (orange shield with "5")
+   - Save as: img/clients/light/html5.png
+
+10. CSS3 (css3.png)
+    - Get the CSS3 logo (blue shield with "3")
+    - Save as: img/clients/light/css3.png
+
+11. PHP (php.png)
+    - Download from: https://www.php.net/
+    - Get the PHP logo (blue oval with "PHP")
+    - Save as: img/clients/light/php.png
+
+12. MySQL (mysql.png)
+    - Download from: https://www.mysql.com/
+    - Get the MySQL dolphin logo (blue/orange dolphin)
+    - Save as: img/clients/light/mysql.png
+
+13. Tailwind CSS (tailwind.png)
+    - Download from: https://tailwindcss.com/
+    - Get the Tailwind CSS logo (teal/blue wave)
+    - Save as: img/clients/light/tailwind.png
+
+14. IntelliJ IDEA (intellij.png)
+    - Download from: https://www.jetbrains.com/idea/
+    - Get the IntelliJ IDEA logo (black/orange square)
+    - Save as: img/clients/light/intellij.png
+
+15. Postman (postman.png)
+    - Download from: https://www.postman.com/
+    - Get the Postman logo (orange rocket/satellite)
+    - Save as: img/clients/light/postman.png
+
+16. GitHub (github.png)
+    - Download from: https://github.com/
+    - Get the GitHub Octocat logo (black cat-octopus)
+    - Save as: img/clients/light/github.png
+
+RECOMMENDED IMAGE SPECIFICATIONS:
+================================
+- Format: PNG with transparent background
+- Size: 80x80 to 120x120 pixels (square format preferred)
+- Style: Clean, professional logos
+- Background: Transparent or white
+- Color: Official brand colors
+
+QUICK DOWNLOAD SOURCES:
+======================
+1. Simple Icons (https://simpleicons.org/) - Free SVG icons for all major technologies
+2. DevIcons (https://devicon.dev/) - Developer-focused icons
+3. Iconify (https://iconify.design/) - Large collection of icons
+4. Official brand websites - Most reliable source for official logos
+
+EASY METHOD:
+============
+Visit https://simpleicons.org/ and search for each technology name. Download the SVG and convert to PNG, or use the PNG versions if available.
+
+Note: Make sure to respect copyright and use official logos or properly licensed icons.

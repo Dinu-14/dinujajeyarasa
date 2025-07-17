@@ -180,6 +180,7 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	font-weight: 400;
 	padding-right: 10px;
 	padding-left: 30px;
+	padding-bottom: 50px;
 	transform: translateY(-380px);
     transition: all .5s ease;
 	opacity: 0;
@@ -419,7 +420,7 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	clear: both;
 }
 .deebo_fn__cv .cv__content section:last-child{
-	margin-bottom: 0;
+	margin-bottom: 80px;
 }
 .right_bar_overlay{
 	position: fixed;
