@@ -1,3 +1,15 @@
+/* Ensure even portfolio images */
+.portfolio_list .gallery_zoom.grid img {
+  width: 100%;
+  max-width: 100%;
+  height: 180px;
+  max-height: 180px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 16px;
+  display: block;
+  margin: 0 auto;
+}
 @charset "utf-8";
 /*
 /*	Copyright (c) 2022 Frenify
@@ -81,7 +93,7 @@ body.resume-opened{
 body.resume-opened .deebo_fn_cv{
 	opacity: 1;
 	visibility: visible;
-    transition: all .5s ease;
+	transition: all .5s ease;
 }
 body.resume-opened .deebo_fn__cv{
 	opacity: 1;
@@ -105,19 +117,19 @@ body.resume-opened .deebo_fn_cv .closer{
 	
 	-webkit-transition: all .5s ease;
 	   -moz-transition: all .5s ease;
-	    -ms-transition: all .5s ease;
-	     -o-transition: all .5s ease;
-	        transition: all .5s 1s ease;
+		-ms-transition: all .5s ease;
+		 -o-transition: all .5s ease;
+			transition: all .5s 1s ease;
 }
 .deebo_fn__cv{
 	position: absolute;
-    top: 0px;
-    bottom: 0px;
-    width: auto;
-    right: 0px;
-    left: 0px;
-    background-color: #151515;
-    z-index: 156;
+	top: 0px;
+	bottom: 0px;
+	width: auto;
+	right: 0px;
+	left: 0px;
+	background-color: #151515;
+	z-index: 156;
 	overflow: hidden;
 }
 .deebo_fn_cv .closer{
@@ -155,15 +167,15 @@ body.resume-opened .deebo_fn__cv .cv__header,
 body.resume-opened .deebo_fn__cv .cv__content{
 	transform: translateY(0px);
 	opacity: 1;
-    transition: all .5s .5s ease;
+	transition: all .5s .5s ease;
 }
 body.resume-opened .deebo_fn__cv .cv__bg{
 	left: 0;
-    transition: all .5s ease;
+	transition: all .5s ease;
 }
 body.resume-opened .deebo_fn__cv .cv__bg2{
 	right: 0;
-    transition: all .5s ease;
+	transition: all .5s ease;
 }
 .deebo_fn__cv .cv__content{
 	position: absolute;
@@ -182,12 +194,12 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	padding-left: 30px;
 	padding-bottom: 50px;
 	transform: translateY(-380px);
-    transition: all .5s ease;
+	transition: all .5s ease;
 	opacity: 0;
 }
 .deebo_fn__cv .cv__content{
-  	scrollbar-width: thin;
-  	scrollbar-color: #000 #000;
+	scrollbar-width: thin;
+	scrollbar-color: #000 #000;
 }
 .deebo_fn__cv .cv__content::-webkit-scrollbar{
 	width: 14px;
@@ -208,7 +220,7 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	top: 0;
 	left: -30%;
 	bottom: 0;
-    transition: all .5s .5s ease;
+	transition: all .5s .5s ease;
 }
 .deebo_fn__cv .cv__bg2{
 	position: absolute;
@@ -219,7 +231,7 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	top: 0;
 	right: -30%;
 	bottom: 0;
-    transition: all .5s .5s ease;
+	transition: all .5s .5s ease;
 }
 .deebo_fn__cv .cv__header{
 	position: absolute;
@@ -231,7 +243,7 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	filter: drop-shadow(10px 0px 10px rgba(0, 0, 0, 0.5));
 	transform: translateY(380px);
 	opacity: 0;
-    transition: all .5s ease;
+	transition: all .5s ease;
 }
 .deebo_fn__cv .cv__header .in{
 	background-color: #191919;
@@ -253,8 +265,8 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 
 .deebo_fn__cv .cv__header .in{
-  	scrollbar-width: thin;
-  	scrollbar-color: #000 #000;
+	scrollbar-width: thin;
+	scrollbar-color: #000 #000;
 }
 .deebo_fn__cv .cv__header .in::-webkit-scrollbar{
 	width: 0;
@@ -289,14 +301,14 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 .deebo_fn__cv .cv__header p.quote{
 	margin: 0;
-    color: #aaa;
-    margin-bottom: 30px;
-    text-align: left;
-    border-left: 3px solid var(--mc);
-    padding-left: 40px;
-    background: #111;
-    padding: 8px 20px;
-    border-radius: 0 5px 5px 0;
+	color: #aaa;
+	margin-bottom: 30px;
+	text-align: left;
+	border-left: 3px solid var(--mc);
+	padding-left: 40px;
+	background: #111;
+	padding: 8px 20px;
+	border-radius: 0 5px 5px 0;
 }
 .deebo_fn__cv .cv__header p.quote a{
 	text-decoration: none;
@@ -337,9 +349,9 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 .cv__header .contact_info li{
 	padding: 0;
-    margin: 0;
-    position: relative;
-    margin-bottom: 5px;
+	margin: 0;
+	position: relative;
+	margin-bottom: 5px;
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
@@ -472,27 +484,27 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	border-radius: 30px;
 	color: #aaa;
 	user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -webkit-touch-callout: none;
-    -o-user-select: none;
-    -moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-webkit-touch-callout: none;
+	-o-user-select: none;
+	-moz-user-select: none;
 	cursor: pointer;
 	box-shadow: 0px 3px 4px rgb(0 0 0 / 30%);
 }
 .deebo_fn_switcher_wrap .checkbox_wrap{
 	position: relative;
-    display: block;
-    width: 42px;
-    height: 24px;
+	display: block;
+	width: 42px;
+	height: 24px;
 	margin: 0 15px;
 }
 .deebo_fn_switcher_wrap input{
 	opacity: 0 !important;
-    position: absolute !important;
-    visibility: hidden !important;
-    width: 0 !important;
-    height: 0 !important;
+	position: absolute !important;
+	visibility: hidden !important;
+	width: 0 !important;
+	height: 0 !important;
 }
 .deebo_fn_switcher_wrap .slider {
 	position: absolute;
@@ -528,7 +540,7 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	border-radius: 24px;
 }
 .deebo_fn_switcher_wrap .slider.round:before {
- 	border-radius: 50%;
+	border-radius: 50%;
 }
 /*------------------------------------------------------------------*/
 /*	03) Section Hero Header
@@ -657,27 +669,27 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	color: #fff;
 }
 .section_header .person_info:after{
-    content: '';
+	content: '';
 	display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 70px;
-    height: 70px;
-    margin: -35px auto auto -35px;
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    background-color: inherit;
-    z-index: -1;
-    pointer-events: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 70px;
+	height: 70px;
+	margin: -35px auto auto -35px;
+	-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+	background-color: inherit;
+	z-index: -1;
+	pointer-events: none;
 	
 	border: 20px solid #000;
 	transition: border-color .3s ease;
 	
-    border-radius: 100%;
+	border-radius: 100%;
 	opacity: 1;
 	-webkit-animation: cs_fn_pulse 2.5s cubic-bezier(0.3,1,0.3,1) infinite;
-    animation: cs_fn_pulse 2.5s cubic-bezier(0.3,1,0.3,1) infinite;
+	animation: cs_fn_pulse 2.5s cubic-bezier(0.3,1,0.3,1) infinite;
 }
 .section_header .person_info:hover{
 	background-color: var(--mc);
@@ -728,10 +740,10 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	position: relative;
 	padding-bottom: 11px;
 	text-transform: uppercase;
-    color: #eee;
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 1px;
+	color: #eee;
+	font-size: 18px;
+	font-weight: 600;
+	letter-spacing: 1px;
 }
 .section_title h3:after{
 	content: '';
@@ -823,13 +835,13 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 .fn_cs_boxed_list .item:after{
 	content: '';
-    position: absolute;
-    width: 2px;
-    height: 50px;
-    left: 0px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--mc);
+	position: absolute;
+	width: 2px;
+	height: 50px;
+	left: 0px;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: var(--mc);
 }
 .fn_cs_boxed_list .item_top{
 	display: flex;
@@ -989,14 +1001,14 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 .fn_cs_service_list .item_left:after{
 	content: '';
-    position: absolute;
-    width: 2px;
-    height: 50px;
-    left: 0px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--mc);
-    transition: all .5s ease;
+	position: absolute;
+	width: 2px;
+	height: 50px;
+	left: 0px;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: var(--mc);
+	transition: all .5s ease;
 }
 .fn_cs_service_list .item_left h3{
 	margin: 0;
@@ -1032,7 +1044,7 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	clear: both;
 }
 .fn_cs_portfolio .portfolio_filter{
-    padding: 0 0 56px 0;
+	padding: 0 0 56px 0;
 }
 .fn_cs_portfolio .portfolio_filter ul{
 	margin: 0px;
@@ -1056,9 +1068,9 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
-	    -ms-transition: all .3s ease;
-	     -o-transition: all .3s ease;
-	        transition: all .3s ease;
+		-ms-transition: all .3s ease;
+		 -o-transition: all .3s ease;
+			transition: all .3s ease;
 }
 .fn_cs_portfolio .portfolio_filter a.current,
 .fn_cs_portfolio .portfolio_filter a:hover{
@@ -1108,13 +1120,13 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-    transform: scale(1) translateZ(0);
+	transform: scale(1) translateZ(0);
 	
 	-webkit-transition: all .3s ease-in-out;
 	   -moz-transition: all .3s ease-in-out;
-	    -ms-transition: all .3s ease-in-out;
-	     -o-transition: all .3s ease-in-out;
-	        transition: all .3s ease-in-out;
+		-ms-transition: all .3s ease-in-out;
+		 -o-transition: all .3s ease-in-out;
+			transition: all .3s ease-in-out;
 }
 .fn_cs_portfolio .portfolio_list .inner:hover .main{
 	transform: scale(1.1) translateZ(0);
@@ -1164,10 +1176,10 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	right: 0;
 	padding: 20px;
 	background: rgba(0,0,0,0.2); /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6)); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1)); /* Standard syntax */
+	background: -webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6)); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6)); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1)); /* Standard syntax */
 	transition: all .5s ease;
 	transform: translateY(20px) translateZ(0);
 	opacity: 0;
@@ -1248,14 +1260,14 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 .fn_cs_testimonials .item_left:after{
 	content: '';
-    position: absolute;
-    width: 2px;
-    height: 50px;
-    left: 0px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--mc);
-    transition: all .5s ease;
+	position: absolute;
+	width: 2px;
+	height: 50px;
+	left: 0px;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: var(--mc);
+	transition: all .5s ease;
 }
 .fn_cs_testimonials .t_ava{
 	width: 100%;
@@ -1268,12 +1280,12 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 .fn_cs_testimonials .ava_in{
 	width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-bottom: 10px;
+	height: 100px;
+	border-radius: 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-bottom: 10px;
 }
 .fn_cs_testimonials .t_name{
 	margin-bottom: 7px;
@@ -1317,47 +1329,47 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 /*------------------------------------------------------------------*/
 .clients_wrapper{
 	width: 100%;
-    float: left;
-    clear: both;
-    overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid transparent;
+	float: left;
+	clear: both;
+	overflow: hidden;
+	border-radius: 10px;
+	border: 1px solid transparent;
 	background-color: #111;
 }
 .clients_wrapper ul{
 	margin: -1px -10px -1px -1px;
-    list-style-type: none;
-    padding-top: 1px;
-    float: left;
-    padding-left: 1px;
-    min-width: calc(100% + 2px);
+	list-style-type: none;
+	padding-top: 1px;
+	float: left;
+	padding-left: 1px;
+	min-width: calc(100% + 2px);
 }
 .clients_wrapper ul li{
 	margin: 0px;
-    float: left;
-    width: 25%;
-    border: 1px solid #1d1d1d;
-    text-align: center;
-    height: 195px;
-    line-height: 195px;
-    position: relative;
-    margin-top: -1px;
-    margin-left: -1px;
-    overflow: hidden;
+	float: left;
+	width: 25%;
+	border: 1px solid #1d1d1d;
+	text-align: center;
+	height: 195px;
+	line-height: 195px;
+	position: relative;
+	margin-top: -1px;
+	margin-left: -1px;
+	overflow: hidden;
 }
 .clients_wrapper a{
 	display: block;
 }
 .clients_wrapper img{
 	max-width: 88%;
-    max-height: 100px;
+	max-height: 100px;
 	opacity: .5;
 	
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
-	    -ms-transition: all .3s ease;
-	     -o-transition: all .3s ease;
-	        transition: all .3s ease;
+		-ms-transition: all .3s ease;
+		 -o-transition: all .3s ease;
+			transition: all .3s ease;
 }
 .clients_wrapper a:hover img{
 	opacity: 1;
@@ -1467,14 +1479,14 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 .tips_content .item_left:after{
 	content: '';
-    position: absolute;
-    width: 2px;
-    height: 50px;
-    left: 0px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--mc);
-    transition: all .5s ease;
+	position: absolute;
+	width: 2px;
+	height: 50px;
+	left: 0px;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: var(--mc);
+	transition: all .5s ease;
 }
 .tips_content p{
 	color: #999;
@@ -1499,12 +1511,12 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 .tips_content .read_more{
 	text-decoration: none;
 	background: #111111;
-    border-radius: 30px;
-    line-height: 1;
-    padding: 8px 25px;
-    color: #eee;
-    margin-top: 20px;
-    border: 2px solid #393939;
+	border-radius: 30px;
+	line-height: 1;
+	padding: 8px 25px;
+	color: #eee;
+	margin-top: 20px;
+	border: 2px solid #393939;
 	transition: all 0.5s ease;
 }
 .tips_content .read_more:hover{
@@ -1550,9 +1562,9 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 .fn__pulse{
 	width: 120px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -1563,9 +1575,9 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 .fn__pulse span{
 	width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: var(--mc);
+	height: 20px;
+	border-radius: 50%;
+	background-color: var(--mc);
 }
 .fn__pulse span:nth-child(1){
 	animation: fn__pulse .4s ease 0s infinite alternate;
@@ -1602,9 +1614,9 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
-	    -ms-transition: all .3s ease;
-	     -o-transition: all .3s ease;
-	        transition: all .3s ease;
+		-ms-transition: all .3s ease;
+		 -o-transition: all .3s ease;
+			transition: all .3s ease;
 }
 .deebo_fn_modalbox .extra_closer{
 	display: block;
@@ -1634,26 +1646,26 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 .deebo_fn_modalbox .closer:after{
 	content: '';
-    position: absolute;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    top: -10px;
-    background-color: transparent;
-    transition: all .3s ease;
-    border: 1px solid transparent;
+	position: absolute;
+	left: -10px;
+	right: -10px;
+	bottom: -10px;
+	top: -10px;
+	background-color: transparent;
+	transition: all .3s ease;
+	border: 1px solid transparent;
 }
 .deebo_fn_modalbox .closer span:before,
 .deebo_fn_modalbox .closer span:after{
 	left: -3px;
 	top: 8px;
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 2px;
-    background-color: #888;
-    transition: all 300ms ease;
-    perspective: 30px;
+	content: '';
+	position: absolute;
+	width: 25px;
+	height: 2px;
+	background-color: #888;
+	transition: all 300ms ease;
+	perspective: 30px;
 }
 .deebo_fn_modalbox .closer span:after{
 	transform: rotate(45deg) translateZ(0);
@@ -1685,8 +1697,8 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	visibility: hidden;
 }
 .deebo_fn_modalbox .modal_content{
-  	scrollbar-width: thin;
-  	scrollbar-color: #333 #111;
+	scrollbar-width: thin;
+	scrollbar-color: #333 #111;
 }
 .deebo_fn_modalbox .modal_content::-webkit-scrollbar{
 	width: 8px;
@@ -1719,9 +1731,9 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	
 	-webkit-transition: all .3s ease;
 	   -moz-transition: all .3s ease;
-	    -ms-transition: all .3s ease;
-	     -o-transition: all .3s ease;
-	        transition: all .3s ease;
+		-ms-transition: all .3s ease;
+		 -o-transition: all .3s ease;
+			transition: all .3s ease;
 }
 .deebo_fn_modalbox.opened .box_inner{
 	opacity: 1;
@@ -1770,23 +1782,23 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 .deebo_fn_modalbox .img_holder{
 	margin-bottom: 45px;
 	width: 100%;
-    overflow: hidden;
-    position: relative;
+	overflow: hidden;
+	position: relative;
 }
 .deebo_fn_modalbox .img_holder img{
 	margin-bottom: -50%;
-    opacity: 0 !important;
+	opacity: 0 !important;
 	min-width: 100%;
 }
 .deebo_fn_modalbox .img_holder .abs_img{
 	position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 .deebo_fn_modalbox .fn__desc{
 	margin-bottom: 28px;
@@ -1855,14 +1867,14 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 .fn__nav .arrow_wrapper:after{
 	content: '';
-    position: absolute;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    top: -10px;
-    background-color: transparent;
-    transition: all .3s ease;
-    border: 1px solid transparent;
+	position: absolute;
+	left: -10px;
+	right: -10px;
+	bottom: -10px;
+	top: -10px;
+	background-color: transparent;
+	transition: all .3s ease;
+	border: 1px solid transparent;
 }
 .fn__nav .arrow{
 	display: block;
@@ -2167,10 +2179,10 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 .light .fn_cs_portfolio .mobile_title{
 	background: rgba(253,253,253,0.2); /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(rgba(253,253,253,0), rgba(253,253,253,0.6)); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(rgba(253,253,253,0), rgba(253,253,253,0.6)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(rgba(253,253,253,0), rgba(253,253,253,0.6)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(rgba(253,253,253,0), rgba(253,253,253,1)); /* Standard syntax */
+	background: -webkit-linear-gradient(rgba(253,253,253,0), rgba(253,253,253,0.6)); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(rgba(253,253,253,0), rgba(253,253,253,0.6)); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(rgba(253,253,253,0), rgba(253,253,253,0.6)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(rgba(253,253,253,0), rgba(253,253,253,1)); /* Standard syntax */
 }
 .light h1, 
 .light h2, 
