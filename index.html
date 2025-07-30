@@ -4,6 +4,7 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![				
 <!-- CV: Biography Section -->
+				<!-- 
 				<section id="cv_biography">
 					<div class="section_title">
 						<h3>About Me</h3>
@@ -19,7 +20,7 @@
 						</ul>
 					</div>
 				</section>
-				<!-- /CV: Biography Section -->a http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				-->
 
 <meta name="description" content="Dinuja Jeyarasa - IT Student & Developer Portfolio">
 <meta name="author" content="Dinuja Jeyarasa">
@@ -523,12 +524,53 @@
 					
 					<!-- Portfolio List -->
 					<div class="portfolio_list">
-						<ul class="gallery_zoom grid">
+<style>
+  .portfolio_list .gallery_zoom.grid .grid-item .mobile_title {
+	opacity: 1;
+	visibility: visible;
+	position: static;
+	background: none;
+	color: #222;
+	text-align: center;
+  margin-top: 1px;
+	transition: transform 0.3s, color 0.3s;
+  }
+  .portfolio_list .gallery_zoom.grid .grid-item .mobile_title h3 {
+	font-size: 1em;
+	font-weight: 400;
+	margin: 0 0 2px 0;
+	transition: transform 0.3s, color 0.3s;
+	display: block;
+  }
+  .portfolio_list .gallery_zoom.grid .grid-item .mobile_title span {
+	font-size: 0.98em;
+	color: #666;
+	display: block;
+	margin-bottom: 2px;
+  }
+  .portfolio_list .gallery_zoom.grid .grid-item .inner {
+	transition: box-shadow 0.3s, transform 0.3s;
+	border-radius: 16px;
+  }
+  .portfolio_list .gallery_zoom.grid .grid-item:hover .inner {
+	box-shadow: 0 8px 32px rgba(25, 118, 210, 0.13);
+	transform: translateY(-6px) scale(1.03);
+  }
+  .portfolio_list .gallery_zoom.grid .grid-item:hover .mobile_title h3 {
+	color: #1976d2;
+	transform: scale(1.08) rotate(-2deg);
+	letter-spacing: 1px;
+  }
+  .portfolio_list .gallery_zoom.grid .grid-item:hover .mobile_title span {
+	color: #1976d2;
+  }
+</style>
+<ul class="gallery_zoom grid">
 <li class="web grid-item">
   <div class="inner">
 	<div class="entry">
 	  <a class="popup-link" href="https://universalscienceacademy.lk/" target="_blank">
-		<img src="img/portfolio/universal_science_academy_logo.png" alt="Universal Science Academy Logo" style="height:200px;width:100%;object-fit:contain;background:#fff;display:block;border-radius:16px;" />
+<img src="img/portfolio/universal_science_academy_logo.png" alt="Universal Science Academy Logo" style="height:130px;width:100%;object-fit:contain;background:#fff;display:block;border-radius:16px;" />
 		<div class="main" data-bg-img="img/portfolio/1.jpg"></div>
 		<div class="mobile_title">
 		  <h3>Universal Science Academy</h3>
@@ -542,7 +584,7 @@
 					<div class="inner">
 						<div class="entry">
 			<a class="zoom" href="img/portfolio/2.jpg">
-				<img src="img/blog/lms_logo.png" alt="LMS Logo" />
+<img src="img/blog/lms_logo.png" alt="LMS Logo" style="height:130px;width:100%;object-fit:contain;background:#fff;display:block;border-radius:16px;" />
 				<div class="main" data-bg-img="img/portfolio/lms.png"></div>
 				<div class="mobile_title">
 					<h3>Learning Management System</h3>
@@ -556,7 +598,7 @@
 								<div class="inner">
 									<div class="entry">
 			<a class="zoom" href="img/portfolio/attendance_system.png">
-				<img src="img/portfolio/attendance_system.png" alt="Attendance Management System" />
+<img src="img/portfolio/attendance_system.png" alt="Attendance Management System" style="height:130px;width:100%;object-fit:contain;background:#fff;display:block;border-radius:16px;" />
 				<div class="main" data-bg-img="img/portfolio/attendance.jpeg"></div>
 				<div class="mobile_title">
 					<h3>Attendance Management System</h3>
@@ -570,7 +612,7 @@
 								<div class="inner">
 									<div class="entry">
 			<a class="zoom" href="img/portfolio/hardwareproject.webp">
-				<img src="img/portfolio/hardwareproject.webp" alt="Automatic Medicine Dispenser" />
+<img src="img/portfolio/hardwareproject.webp" alt="Automatic Medicine Dispenser" style="height:130px;width:100%;object-fit:contain;background:#fff;display:block;border-radius:16px;" />
 				<div class="main" data-bg-img="img/portfolio/hardwareproject.webp"></div>
 				<div class="mobile_title">
 					<h3>Automatic Medicine Dispenser</h3>
