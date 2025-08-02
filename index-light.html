@@ -568,8 +568,65 @@
 							</li>
 						</ul>
 					</div>
-					<!-- /Portfolio List -->					</div>
+					<!-- /Portfolio List --
 					<!-- /Portfolio Shortcode -->
+					<!-- Always show project name and time below each portfolio item -->
+					<style>
+						.portfolio_project_info {
+							margin-top: 10px;
+							text-align: center;
+							font-size: 0.98em;
+							color: #444;
+						}
+						.dark .portfolio_project_info {
+							color: #e0e0e0;
+						}
+						.portfolio_project_info .project_time {
+							display: block;
+							font-size: 0.93em;
+							color: #888;
+							margin-top: 2px;
+						}
+						.dark .portfolio_project_info .project_time {
+							color: #bbb;
+						}
+					</style>
+					<script>
+						// Add project info under each portfolio item
+						document.addEventListener('DOMContentLoaded', function() {
+							var projectData = [
+								{
+									selector: '.portfolio_list li.web',
+									name: 'Universal Science Academy',
+									
+								},
+								{
+									selector: '.portfolio_list li.system',
+									name: 'Learning Management System',
+									
+								},
+								{
+									selector: '.portfolio_list li.database',
+									name: 'Attendance Management System',
+									
+								},
+								{
+									selector: '.portfolio_list li.hardware',
+									name: 'Automatic Medicine Dispenser',
+									
+								}
+							];
+							projectData.forEach(function(proj) {
+								var el = document.querySelector(proj.selector);
+								if (el && !el.querySelector('.portfolio_project_info')) {
+									var info = document.createElement('div');
+									info.className = 'portfolio_project_info';
+									info.innerHTML = '<strong>' + proj.name + '</strong><span class="project_time">' +  '</span>';
+									el.appendChild(info);
+								}
+							});
+						});
+					</script>
 					
 				</section>
 				<!-- /CV: Portfolio Section-->
@@ -652,7 +709,7 @@
 						.clients_grid {
 							display: flex;
 							flex-wrap: wrap;
-							gap: 28px 32px; /* More space between icons */
+							gap: 18px;
 							justify-content: center;
 							padding: 0;
 							margin: 0;
@@ -660,50 +717,45 @@
 						}
 						.clients_grid li {
 							background: #fff;
-							border-radius: 14px;
-							box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-							padding: 16px;
+							border-radius: 12px;
+							box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+							padding: 12px;
 							transition: box-shadow 0.2s, transform 0.2s;
 							display: flex;
 							align-items: center;
 							justify-content: center;
-							min-width: 64px;
-							min-height: 64px;
-							max-width: 64px;
-							max-height: 64px;
+							min-width: 56px;
+							min-height: 56px;
+							max-width: 56px;
+							max-height: 56px;
 						}
 						.dark .clients_grid li {
 							background: #232323;
-							box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+							box-shadow: 0 2px 8px rgba(0,0,0,0.18);
 						}
 						.clients_grid li:hover {
-							box-shadow: 0 4px 18px rgba(255,152,0,0.16);
-							transform: translateY(-2px) scale(1.09);
+							box-shadow: 0 4px 16px rgba(255,152,0,0.12);
+							transform: translateY(-2px) scale(1.07);
 						}
 						.clients_grid li a {
 							display: flex;
 							align-items: center;
 							justify-content: center;
-							width: 40px;
-							height: 40px;
+							width: 32px;
+							height: 32px;
 						}
 						.clients_grid li img {
-							width: 40px;
-							height: 40px;
+							width: 32px;
+							height: 32px;
 							object-fit: contain;
 							display: block;
-							filter: none;
-							transition: filter 0.2s, transform 0.2s;
-							image-rendering: auto;
+							filter: grayscale(0.2) brightness(0.98);
+							transition: filter 0.2s;
 						}
 						.clients_grid li:hover img {
-							filter: drop-shadow(0 2px 6px #ff980033);
-							transform: scale(1.08);
+							filter: none;
 						}
 						@media (max-width: 600px) {
-							.clients_grid {
-								gap: 16px 12px;
-							}
 							.clients_grid li {
 								min-width: 44px;
 								min-height: 44px;
@@ -713,8 +765,8 @@
 							}
 							.clients_grid li a,
 							.clients_grid li img {
-								width: 28px;
-								height: 28px;
+								width: 24px;
+								height: 24px;
 							}
 						}
 					</style>
@@ -791,8 +843,8 @@
 							});
 						});
 					</script>
-					</section>
-					<!-- /CV: Technologies & Tools Section -->
+				</section>
+				<!-- /CV: Technologies & Tools Section -->
 				
 				
 				<!-- CV: News Section -->
