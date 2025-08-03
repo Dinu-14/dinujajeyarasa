@@ -352,66 +352,249 @@
 					<div class="section_title">
 						<h3>Technical Skills</h3>
 					</div>
-					<div class="fn_cs_progress_bar">
-						<!-- Frontend Skills -->
-						<div style="margin-bottom: 16px;">
-							<h4 style="margin-bottom: 8px;">Frontend</h4>
-							<div class="progress_item" data-value="95">
-								<div class="item_in">
-									<h3 class="progress_title">HTML, CSS, JavaScript</h3>
-									<span class="progress_percent"></span>
-									<div class="progress_bg"></div>
-								</div>
+					
+					<!-- Clean Skills Layout without Rating -->
+					<style>
+						.skills_container {
+							margin-top: 30px;
+						}
+						
+						.skills_category {
+							margin-bottom: 35px;
+						}
+						
+						.skill_category_header {
+							display: flex;
+							align-items: center;
+							margin-bottom: 20px;
+							padding: 0 0 12px 0;
+							border-bottom: 2px solid #f5f5f5;
+							position: relative;
+						}
+						
+						.skill_category_header::after {
+							content: '';
+							position: absolute;
+							bottom: -2px;
+							left: 0;
+							width: 50px;
+							height: 2px;
+							background: linear-gradient(135deg, #2196f3, #1976d2);
+						}
+						
+						.skill_category_icon {
+							width: 20px;
+							height: 20px;
+							margin-right: 10px;
+							font-size: 16px;
+						}
+						
+						.skill_category_title {
+							font-size: 1.25em;
+							font-weight: 600;
+							color: #333;
+							margin: 0;
+						}
+						
+						.skills_grid {
+							display: flex;
+							flex-wrap: wrap;
+							gap: 12px;
+						}
+						
+						.skill_badge {
+							background: #fff;
+							border: 2px solid #f0f0f0;
+							border-radius: 25px;
+							padding: 10px 18px;
+							font-size: 0.9em;
+							font-weight: 500;
+							color: #555;
+							transition: all 0.3s ease;
+							cursor: default;
+							position: relative;
+							overflow: hidden;
+						}
+						
+						.skill_badge:hover {
+							border-color: #2196f3;
+							background: #f3f8ff;
+							transform: translateY(-2px);
+							box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
+						}
+						
+						.skill_badge::before {
+							content: '';
+							position: absolute;
+							top: 0;
+							left: -100%;
+							width: 100%;
+							height: 100%;
+							background: linear-gradient(90deg, transparent, rgba(33, 150, 243, 0.1), transparent);
+							transition: left 0.6s ease;
+						}
+						
+						.skill_badge:hover::before {
+							left: 100%;
+						}
+						
+						/* Skill variations for visual interest */
+						.skill_badge:nth-child(3n+1) {
+							background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+						}
+						
+						.skill_badge:nth-child(3n+2) {
+							background: linear-gradient(135deg, #f5f7fa, #e6ebf0);
+						}
+						
+						.skill_badge:nth-child(3n+3) {
+							background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+						}
+						
+						.skill_badge:nth-child(3n+1):hover {
+							background: linear-gradient(135deg, #e8f4f8, #b3d9f0);
+							border-color: #607d8b;
+						}
+						
+						.skill_badge:nth-child(3n+2):hover {
+							background: linear-gradient(135deg, #f0f4f8, #c5d6e8);
+							border-color: #78909c;
+						}
+						
+						.skill_badge:nth-child(3n+3):hover {
+							background: linear-gradient(135deg, #e3f2fd, #64b5f6);
+							border-color: #2196f3;
+						}
+						
+						/* Dark mode styles */
+						.dark .skill_category_header {
+							border-bottom-color: #404040;
+						}
+						
+						.dark .skill_category_title {
+							color: #e0e0e0;
+						}
+						
+						.dark .skill_badge {
+							background: #2a2a2a;
+							border-color: #404040;
+							color: #e0e0e0;
+						}
+						
+						.dark .skill_badge:hover {
+							background: #333;
+							border-color: #2196f3;
+							color: #fff;
+						}
+						
+						.dark .skill_badge:nth-child(3n+1) {
+							background: linear-gradient(135deg, #2a2a2a, #333);
+						}
+						
+						.dark .skill_badge:nth-child(3n+2) {
+							background: linear-gradient(135deg, #2a2a2a, #333);
+						}
+						
+						.dark .skill_badge:nth-child(3n+3) {
+							background: linear-gradient(135deg, #2a2a2a, #333);
+						}
+						
+						.dark .skill_badge:nth-child(3n+1):hover {
+							background: linear-gradient(135deg, #404040, #607d8b);
+						}
+						
+						.dark .skill_badge:nth-child(3n+2):hover {
+							background: linear-gradient(135deg, #404040, #78909c);
+						}
+						
+						.dark .skill_badge:nth-child(3n+3):hover {
+							background: linear-gradient(135deg, #404040, #2196f3);
+						}
+						
+						@media (max-width: 768px) {
+							.skills_grid {
+								gap: 8px;
+							}
+							
+							.skill_badge {
+								padding: 8px 14px;
+								font-size: 0.85em;
+							}
+							
+							.skill_category_title {
+								font-size: 1.1em;
+							}
+						}
+					</style>
+					
+					<div class="skills_container">
+						<!-- Frontend Development -->
+						<div class="skills_category">
+							<div class="skill_category_header">
+								<div class="skill_category_icon">🎨</div>
+								<h4 class="skill_category_title">Frontend Development</h4>
 							</div>
-							<div class="progress_item" data-value="85">
-								<div class="item_in">
-									<h3 class="progress_title">React, Next.js</h3>
-									<span class="progress_percent"></span>
-									<div class="progress_bg"></div>
-								</div>
-							</div>
-							<div class="progress_item" data-value="80">
-								<div class="item_in">
-									<h3 class="progress_title">UI/UX Design, Tailwind CSS</h3>
-									<span class="progress_percent"></span>
-									<div class="progress_bg"></div>
-								</div>
+							<div class="skills_grid">
+								<span class="skill_badge">HTML</span>
+								<span class="skill_badge">CSS</span>
+								<span class="skill_badge">JavaScript</span>
+								<span class="skill_badge">React.js</span>
+								<span class="skill_badge">Next.js</span>
+								<span class="skill_badge">Tailwind CSS</span>
+								<span class="skill_badge">UI/UX Design</span>
+								<span class="skill_badge">Responsive Design</span>
+								
 							</div>
 						</div>
-						<!-- Backend Skills -->
-						<div style="margin-bottom: 16px;">
-							<h4 style="margin-bottom: 8px;">Backend</h4>
-							<div class="progress_item" data-value="90">
-								<div class="item_in">
-									<h3 class="progress_title">Java, Spring Boot, PHP, C</h3>
-									<span class="progress_percent"></span>
-									<div class="progress_bg"></div>
-								</div>
+						
+						<!-- Backend Development -->
+						<div class="skills_category">
+							<div class="skill_category_header">
+								<div class="skill_category_icon">⚙️</div>
+								<h4 class="skill_category_title">Backend Development</h4>
 							</div>
-							<div class="progress_item" data-value="75">
-								<div class="item_in">
-									<h3 class="progress_title">PostgreSQL, MySQL, SQL</h3>
-									<span class="pr</div>ogress_percent"></span>
-									<div class="progress_bg"></div>
-								</div>
-							</div>
-							<div class="progress_item" data-value="70">
-								<div class="item_in">
-									<h3 class="progress_title">REST APIs, LaTeX</h3>
-									<span class="progress_percent"></span>
-									<div class="progress_bg"></div>
-								</div>
+							<div class="skills_grid">
+								<span class="skill_badge">Java</span>
+								<span class="skill_badge">Spring Boot</span>
+								<span class="skill_badge">PHP</span>
+								
+								<span class="skill_badge">REST APIs</span>
+								<span class="skill_badge">C Programming</span>
+								
+								<span class="skill_badge">LaTeX</span>
 							</div>
 						</div>
-						<!-- Tools -->
-						<div>
-							<h4 style="margin-bottom: 8px;">Tools</h4>
-							<div class="progress_item" data-value="80">
-								<div class="item_in">
-									<h3 class="progress_title">Git, GitHub, VS Code, IntelliJ IDEA, Postman</h3>
-									<span class="progress_percent"></span>
-									<div class="progress_bg"></div>
-								</div>
+						
+						<!-- Database & Storage -->
+						<div class="skills_category">
+							<div class="skill_category_header">
+								<div class="skill_category_icon">🗄️</div>
+								<h4 class="skill_category_title">Database & Storage</h4>
+							</div>
+							<div class="skills_grid">
+								<span class="skill_badge">PostgreSQL</span>
+								<span class="skill_badge">MySQL</span>
+								<span class="skill_badge">SQL</span>
+								<span class="skill_badge">Database Design</span>
+								
+							</div>
+						</div>
+						
+						<!-- Development Tools -->
+						<div class="skills_category">
+							<div class="skill_category_header">
+								<div class="skill_category_icon">🛠️</div>
+								<h4 class="skill_category_title">Development Tools & Platforms</h4>
+							</div>
+							<div class="skills_grid">
+								<span class="skill_badge">Git</span>
+								<span class="skill_badge">GitHub</span>
+								<span class="skill_badge">VS Code</span>
+								<span class="skill_badge">IntelliJ IDEA</span>
+								<span class="skill_badge">Postman</span>
+								<span class="skill_badge">Terminal</span>
+								
+								<span class="skill_badge">Windows</span>
 							</div>
 						</div>
 					</div>
@@ -488,7 +671,7 @@
 				<!-- CV: Portfolio Section-->
 				<section id="cv_portfolio">
 					<div class="section_title">
-						<h3>Portfolio</h3>
+						<h3>Portfolio & Key Projects</h3>
 					</div>
 					
 					<!-- Portfolio Shortcode -->
@@ -502,6 +685,7 @@
 							<li><a href="#" data-filter=".system">Systems</a></li>
 							<li><a href="#" data-filter=".hardware">Hardware</a></li>
 							<li><a href="#" data-filter=".database">Database</a></li>
+							<li><a href="#" data-filter=".ecommerce">E-commerce</a></li>
 						</ul>
 					</div>
 					<!-- /Portfolio Filter -->
@@ -510,10 +694,10 @@
 					<!-- Portfolio List -->
 					<div class="portfolio_list">
 						<ul class="gallery_zoom grid">
-<li class="web grid-item">
+<li class="web grid-item modal_item" data-index="1">
   <div class="inner">
 	<div class="entry">
-	  <a class="popup-link" href="https://universalscienceacademy.lk/" target="_blank">
+	  <a class="popup-link" href="#" data-project="universal-academy">
 		<img src="img/portfolio/universal_science_academy_logo.png" alt="Universal Science Academy Logo" style="height:200px;width:100%;object-fit:contain;background:#fff;display:block;border-radius:16px;" />
 		<div class="main" data-bg-img="img/portfolio/1.jpg"></div>
 		<div class="mobile_title">
@@ -521,13 +705,24 @@
 		  <span>Educational Website</span>
 		</div>
 	  </a>
+	  <div class="fn__hidden">
+		<p class="fn__cat">January 2025 - April 2025</p>
+		<h3 class="fn__title">Universal Science Academy Website Development</h3>
+		<div class="img_holder">
+		  <img src="img/thumb/square.jpg" alt="">
+		  <div class="abs_img" data-bg-img="img/blog/1.jpg"></div>
+		</div>
+		<p class="fn__desc">Developed and launched a fully responsive educational website for Universal Science Academy using React.js and Tailwind CSS. This project was part of my internship at Detech (Pvt) Ltd where I gained hands-on experience in modern web development.</p>
+		<p class="fn__desc">Implemented serverless real-time messaging with EmailJS, contributed to building the frontend UI/UX, managing the admission form, timetable page, and interactive components like teacher profiles and location integration. The website is now live and serving students and educators.</p>
+		<p class="fn__desc">Technologies used: React.js, Tailwind CSS, EmailJS. <a href="https://universalscienceacademy.lk/" target="_blank" style="color: #1976d2; text-decoration: underline;">View Live Website</a></p>
+	  </div>
 	</div>
   </div>
 </li>
-				<li class="system grid-item">
+				<li class="system grid-item modal_item" data-index="2">
 					<div class="inner">
 						<div class="entry">
-			<a class="zoom" href="img/portfolio/2.jpg">
+			<a class="zoom" href="#" data-project="lms">
 				<img src="img/blog/lms_logo.png" alt="LMS Logo" />
 				<div class="main" data-bg-img="img/portfolio/lms.png"></div>
 				<div class="mobile_title">
@@ -535,13 +730,24 @@
 					<span>Moodle-based LMS</span>
 				</div>
 			</a>
+			<div class="fn__hidden">
+			  <p class="fn__cat">Ongoing Project</p>
+			  <h3 class="fn__title">Learning Management System Development</h3>
+			  <div class="img_holder">
+				<img src="img/blog/lms_logo.png" alt="LMS Logo" style="max-width: 100%; height: auto; display: block; margin: 0 auto 20px auto;" />
+				<div class="abs_img" data-bg-img="img/blog/2.jpg"></div>
+			  </div>
+			  <p class="fn__desc">Contributing to the development of a Moodle-based Learning Management System by focusing on the student interface module. This Level 2 software project involves designing and developing features that enhance the learning experience.</p>
+			  <p class="fn__desc">My main tasks include designing features that allow students to view and download course materials, submit assignments, take quizzes, send academic queries to lecturers, and view announcements and notifications.</p>
+			  <p class="fn__desc">Tools used: Postman, IntelliJ IDEA, Visual Studio Code, PostgreSQL for development and testing.</p>
+			</div>
 						</div>
 					</div>
 							</li>
-							<li class="database grid-item">
+							<li class="database grid-item modal_item" data-index="3">
 								<div class="inner">
 									<div class="entry">
-			<a class="zoom" href="img/portfolio/attendance_system.png">
+			<a class="zoom" href="#" data-project="attendance">
 				<img src="img/portfolio/attendance_system.png" alt="Attendance Management System" />
 				<div class="main" data-bg-img="img/portfolio/attendance.jpeg"></div>
 				<div class="mobile_title">
@@ -549,13 +755,23 @@
 					<span>Next.js & Spring Boot</span>
 				</div>
 			</a>
-									</div>
+			<div class="fn__hidden">
+			  <p class="fn__cat">Ongoing Project</p>
+			  <h3 class="fn__title">Attendance Management System</h3>
+			  <div class="img_holder">
+				<img src="img/thumb/square.jpg" alt="">
+				<div class="abs_img" data-bg-img="img/blog/3.jpg"></div>
+			  </div>
+			  <p class="fn__desc">Developing an Attendance Management System using Next.js, Spring Boot and PostgreSQL. The system allows students to mark their attendance by entering their batch, subject, and index number, which is then validated against a student database.</p>
+			  <p class="fn__desc">Integrated CSV file processing to import and update student details dynamically, enabling easy data maintenance without direct database manipulation. Utilized OpenCSV for parsing and ensured data integrity through unique constraints and validation logic.</p>
+			  <p class="fn__desc">The project includes RESTful APIs for managing student records and uses tools like Postman and IntelliJ IDEA for development and testing.</p>
+			</div>
 								</div>
 							</li>
-							<li class="hardware grid-item">
+							<li class="hardware grid-item modal_item" data-index="4">
 								<div class="inner">
 									<div class="entry">
-			<a class="zoom" href="img/portfolio/hardwareproject.webp">
+			<a class="zoom" href="#" data-project="medicine-dispenser">
 				<img src="img/portfolio/hardwareproject.webp" alt="Automatic Medicine Dispenser" />
 				<div class="main" data-bg-img="img/portfolio/hardwareproject.webp"></div>
 				<div class="mobile_title">
@@ -563,57 +779,127 @@
 					<span>Microcontroller Project</span>
 				</div>
 			</a>
-									</div>
+			<div class="fn__hidden">
+			  <p class="fn__cat">Level 1 Project</p>
+			  <h3 class="fn__title">Automatic Medicine Dispenser</h3>
+			  <div class="img_holder">
+				<img src="img/thumb/square.jpg" alt="">
+				<div class="abs_img" data-bg-img="img/blog/4.jpg"></div>
+			  </div>
+			  <p class="fn__desc">Designed and developed a microcontroller-based hardware project for automatic medicine dispensing. The device is designed to help users manage their medication by automatically dispensing the correct dosage at set times.</p>
+			  <p class="fn__desc">My contribution focused on testing and implementation of RTC module (DS3231) for keeping time schedule. Utilized the DS3231's built-in temperature sensor to monitor ambient temperature and developed core logic integration.</p>
+			  <p class="fn__desc">This project was a great learning experience and involved strong teamwork and problem-solving skills, combining hardware integration with software logic.</p>
+			</div>
+								</div>
+							</li>
+							<li class="ecommerce web grid-item modal_item" data-index="5">
+								<div class="inner">
+									<div class="entry">
+			<a class="zoom" href="#" data-project="shopping-website">
+				<img src="https://via.placeholder.com/400x200/6366f1/ffffff?text=Shopping+Website" alt="Shopping Website" />
+				<div class="main" data-bg-img="img/blog/5.jpg"></div>
+				<div class="mobile_title">
+					<h3>Shopping Website</h3>
+					<span>E-commerce Platform</span>
+				</div>
+			</a>
+			<div class="fn__hidden">
+			  <p class="fn__cat">Ongoing Project</p>
+			  <h3 class="fn__title">Modern E-commerce Shopping Website</h3>
+			  <div class="img_holder">
+				<img src="img/thumb/square.jpg" alt="">
+				<div class="abs_img" data-bg-img="img/blog/5.jpg"></div>
+			  </div>
+			  <p class="fn__desc">Developing a modern e-commerce shopping website using Next.js, TypeScript, and Tailwind CSS. The platform features separate collections for men's and women's fashion with a responsive design and intuitive user interface.</p>
+			  <p class="fn__desc">Key features include product catalogs, shopping cart functionality, user authentication, search capabilities, and category-based navigation. The site includes testimonials, newsletter signup, and modern UI components with hover effects and animations.</p>
+			  <p class="fn__desc">Technologies used: Next.js, TypeScript, Tailwind CSS, React Icons. <a href="https://github.com/Dinu-14/shopping-website.git" target="_blank" style="color: #1976d2; text-decoration: underline;">View Repository</a></p>
+			</div>
 								</div>
 							</li>
 						</ul>
 					</div>
-					<!-- /Portfolio List --
+					<!-- /Portfolio List -->
 					<!-- /Portfolio Shortcode -->
-					<!-- Always show project name and time below each portfolio item -->
+					
+					<!-- Enhanced Portfolio Styles -->
 					<style>
 						.portfolio_project_info {
-							margin-top: 10px;
+							margin-top: 15px;
 							text-align: center;
 							font-size: 0.98em;
 							color: #444;
+							padding: 12px;
+							background: #f9f9f9;
+							border-radius: 8px;
+							border-left: 4px solid #ff9800;
 						}
 						.dark .portfolio_project_info {
 							color: #e0e0e0;
+							background: #2a2a2a;
 						}
 						.portfolio_project_info .project_time {
 							display: block;
 							font-size: 0.93em;
 							color: #888;
-							margin-top: 2px;
+							margin-top: 5px;
+							font-weight: 500;
 						}
 						.dark .portfolio_project_info .project_time {
 							color: #bbb;
 						}
+						.portfolio_project_info .project_tech {
+							display: block;
+							font-size: 0.85em;
+							color: #666;
+							margin-top: 4px;
+							font-style: italic;
+						}
+						.dark .portfolio_project_info .project_tech {
+							color: #aaa;
+						}
+						.portfolio_list .grid-item:hover .portfolio_project_info {
+							background: #fff;
+							box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+						}
+						.dark .portfolio_list .grid-item:hover .portfolio_project_info {
+							background: #333;
+							box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+						}
 					</style>
+					
 					<script>
-						// Add project info under each portfolio item
+						// Enhanced project info under each portfolio item
 						document.addEventListener('DOMContentLoaded', function() {
 							var projectData = [
 								{
 									selector: '.portfolio_list li.web',
 									name: 'Universal Science Academy',
-									
+									time: '',
+									tech: ''
 								},
 								{
 									selector: '.portfolio_list li.system',
 									name: 'Learning Management System',
-									
+									time: '',
+									tech: ''
 								},
 								{
 									selector: '.portfolio_list li.database',
 									name: 'Attendance Management System',
-									
+									time: 'Ongoing Project',
+									tech: ''
 								},
 								{
 									selector: '.portfolio_list li.hardware',
 									name: 'Automatic Medicine Dispenser',
-									
+									time: '',
+									tech: ''
+								},
+								{
+									selector: '.portfolio_list li.ecommerce',
+									name: 'Shopping Website',
+									time: 'Ongoing Project',
+									tech: ''
 								}
 							];
 							projectData.forEach(function(proj) {
@@ -621,7 +907,7 @@
 								if (el && !el.querySelector('.portfolio_project_info')) {
 									var info = document.createElement('div');
 									info.className = 'portfolio_project_info';
-									info.innerHTML = '<strong>' + proj.name + '</strong><span class="project_time">' +  '</span>';
+									info.innerHTML = '<strong>' + proj.name + '</strong><span class="project_time">' + proj.time + '</span><span class="project_tech">' + proj.tech + '</span>';
 									el.appendChild(info);
 								}
 							});
@@ -845,145 +1131,6 @@
 					</script>
 				</section>
 				<!-- /CV: Technologies & Tools Section -->
-				
-				
-				<!-- CV: News Section -->
-				<section id="tips" class="section_tips">
-					<div class="section_title">
-						<h3>Key Projects & Learning</h3>
-					</div>
-
-					<div class="tips_content">
-						<ul class="modal_items" data-from="blog" data-count="5">
-							<li>
-								<div class="item modal_item" data-index="1">
-									<div class="item_left">
-										<p>January 2025 - April 2025</p>
-										<h5><a href="#">Universal Science Academy Website Development</a></h5>
-										<a href="#" class="read_more">Read More</a>
-										<div class="fn__hidden">
-											<p class="fn__cat">January 2025 - April 2025</p>
-											<h3 class="fn__title">Universal Science Academy Website Development</h3>
-											<div class="img_holder">
-												<img src="img/thumb/square.jpg" alt="">
-												<div class="abs_img" data-bg-img="img/blog/1.jpg"></div>
-											</div>
-											<p class="fn__desc">Developed and launched a fully responsive educational website for Universal Science Academy using React.js and Tailwind CSS. This project was part of my internship at Detech (Pvt) Ltd where I gained hands-on experience in modern web development.</p>
-											<p class="fn__desc">Implemented serverless real-time messaging with EmailJS, contributed to building the frontend UI/UX, managing the admission form, timetable page, and interactive components like teacher profiles and location integration. The website is now live and serving students and educators.</p>
-											<p class="fn__desc">Technologies used: React.js, Tailwind CSS, EmailJS. View the live website at https://universalscienceacademy.lk/</p>
-										</div>
-									</div>
-									<div class="item_right">
-										<div class="abs_img" data-bg-img="img/blog/1.jpg"></div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="item modal_item" data-index="2">
-									<div class="item_left">
-										<p>Ongoing Project</p>
-										<h5><a href="#">Learning Management System Development</a></h5>
-										<a href="#" class="read_more">Read More</a>
-										<div class="fn__hidden">
-											<p class="fn__cat">Ongoing Project</p>
-											<h3 class="fn__title">Learning Management System Development</h3>
-<div class="img_holder">
-	<img src="img/blog/lms_logo.png" alt="LMS Logo" style="max-width: 100%; height: auto; display: block; margin: 0 auto 20px auto;" />
-	<div class="abs_img" data-bg-img="img/blog/2.jpg"></div>
-											</div>
-											<p class="fn__desc">Contributing to the development of a Moodle-based Learning Management System by focusing on the student interface module. This Level 2 software project involves designing and developing features that enhance the learning experience.</p>
-											<p class="fn__desc">My main tasks include designing features that allow students to view and download course materials, submit assignments, take quizzes, send academic queries to lecturers, and view announcements and notifications.</p>
-											<p class="fn__desc">Tools used: Postman, IntelliJ IDEA, Visual Studio Code, PostgreSQL for development and testing.</p>
-										</div>
-									</div>
-									<div class="item_right">
-										<div class="abs_img" data-bg-img="img/blog/2.jpg"></div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="item modal_item" data-index="3">
-									<div class="item_left">
-										<p>Ongoing Project</p>
-										<h5><a href="#">Attendance Management System</a></h5>
-										<a href="#" class="read_more">Read More</a>
-										<div class="fn__hidden">
-											<p class="fn__cat">Ongoing Project</p>
-											<h3 class="fn__title">Attendance Management System</h3>
-											<div class="img_holder">
-												<img src="img/thumb/square.jpg" alt="">
-												<div class="abs_img" data-bg-img="img/blog/3.jpg"></div>
-											</div>
-											<p class="fn__desc">Developing an Attendance Management System using Next.js, Spring Boot and PostgreSQL. The system allows students to mark their attendance by entering their batch, subject, and index number, which is then validated against a student database.</p>
-											<p class="fn__desc">Integrated CSV file processing to import and update student details dynamically, enabling easy data maintenance without direct database manipulation. Utilized OpenCSV for parsing and ensured data integrity through unique constraints and validation logic.</p>
-											<p class="fn__desc">The project includes RESTful APIs for managing student records and uses tools like Postman and IntelliJ IDEA for development and testing.</p>
-										</div>
-									</div>
-									<div class="item_right">
-										<div class="abs_img" data-bg-img="img/blog/3.jpg"></div>
-									</div>
-								</div>
-							</li>
-							<li class="be_animated">
-								<div class="item modal_item" data-index="4">
-									<div class="item_left">
-										<p>Level 1 Project</p>
-										<h5><a href="#">Automatic Medicine Dispenser</a></h5>
-										<a href="#" class="read_more">Read More</a>
-										<div class="fn__hidden">
-											<p class="fn__cat">Level 1 Project</p>
-											<h3 class="fn__title">Automatic Medicine Dispenser</h3>
-											<div class="img_holder">
-												<img src="img/thumb/square.jpg" alt="">
-												<div class="abs_img" data-bg-img="img/blog/4.jpg"></div>
-											</div>
-											<p class="fn__desc">Designed and developed a microcontroller-based hardware project for automatic medicine dispensing. The device is designed to help users manage their medication by automatically dispensing the correct dosage at set times.</p>
-											<p class="fn__desc">My contribution focused on testing and implementation of RTC module (DS3231) for keeping time schedule. Utilized the DS3231's built-in temperature sensor to monitor ambient temperature and developed core logic integration.</p>
-											<p class="fn__desc">This project was a great learning experience and involved strong teamwork and problem-solving skills, combining hardware integration with software logic.</p>
-										</div>
-									</div>
-									<div class="item_right">
-										<div class="abs_img" data-bg-img="img/blog/4.jpg"></div>
-									</div>
-								</div>
-							</li>
-							<li class="be_animated">
-								<div class="item modal_item" data-index="5">
-									<div class="item_left">
-										<p>Academic Journey</p>
-										<h5><a href="#">Information Technology Studies at University of Moratuwa</a></h5>
-										<a href="#" class="read_more">Read More</a>
-										<div class="fn__hidden">
-											<p class="fn__cat">Academic Journey</p>
-											<h3 class="fn__title">Information Technology Studies at University of Moratuwa</h3>
-											<div class="img_holder">
-												<img src="img/thumb/square.jpg" alt="">
-												<div class="abs_img" data-bg-img="img/blog/5.jpg"></div>
-											</div>
-											<p class="fn__desc">Currently pursuing B.Sc (Hons) in Information Technology at the University of Moratuwa (2023 – Present). The program covers comprehensive coursework in Data Structures and Algorithms, Web Technologies, Database Systems, Object-Oriented Programming, Computer Networks, and Software Engineering.</p>
-											<p class="fn__desc">Previous education includes Information Technology Level 1 to 4 certification from NAITA (June 2022 – Nov 2022) and completed primary and secondary education at J/Skandavarodaya College with a CGPA of 3.24/4.0.</p>
-											<p class="fn__desc">Served as Junior & Senior Prefect demonstrating leadership skills and commitment to academic excellence throughout my educational journey.</p>
-										</div>
-									</div>
-									<div class="item_right">
-										<div class="abs_img" data-bg-img="img/blog/5.jpg"></div>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
-					<div class="load_more">
-						<a href="#" data-done="Done" data-no="No more projects found">
-							<span class="text">Load More Projects</span>
-							<span class="fn__pulse">
-								<span></span>
-								<span></span>
-								<span></span>
-							</span>
-						</a>
-					</div>
-				</section>
-				<!-- /CV: News Section -->
 				
 				
 				<!-- CV: Contact Section -->
