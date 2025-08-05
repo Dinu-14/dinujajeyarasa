@@ -81,15 +81,18 @@
 		position: fixed !important;
 		top: 0;
 		left: 0;
-		width: 350px !important;
+		width: 380px !important;
 		height: 100vh;
-		overflow-y: auto;
+		overflow: hidden !important; /* Remove scrolling */
 		z-index: 100;
 		background: #fff !important;
+		display: flex !important;
+		flex-direction: column !important;
+		justify-content: space-between !important;
 	  }
 	  
 	  .cv__content {
-		margin-left: 370px; /* Match sidebar width + some padding */
+		margin-left: 400px; /* Match sidebar width + some padding */
 	  }
 	  
 	  /* CV Download Button Hover Effect */
@@ -101,9 +104,9 @@
 	  
 	  /* Avatar image styling */
 	  .cv__header .avatar {
-		width: 160px !important;
-		height: 200px !important;
-		margin: 0 auto 25px auto !important;
+		width: 120px !important;
+		height: 140px !important;
+		margin: 0 auto 15px auto !important;
 		border-radius: 50% !important;
 		overflow: visible !important;
 		border: 3px solid #ff9800 !important;
@@ -165,22 +168,110 @@
 	  
 	  /* Ensure the container has proper structure */
 	  .cv__header .in {
-		padding: 30px 20px !important;
+		padding: 20px 15px !important;
 		text-align: center !important;
+		height: 100% !important;
+		display: flex !important;
+		flex-direction: column !important;
+		justify-content: space-between !important;
+	  }
+	  
+	  /* Optimize text sizes for fitting */
+	  .cv__header h3 {
+		font-size: 1.3em !important;
+		margin: 0 0 8px 0 !important;
+		line-height: 1.1 !important;
+	  }
+	  
+	  .cv__header .quote {
+		font-size: 0.78em !important;
+		line-height: 1.2 !important;
+		margin: 0 0 12px 0 !important;
+	  }
+	  
+	  .cv__header .contact_info {
+		margin: 10px 0 !important;
+	  }
+	  
+	  .cv__header .contact_info li {
+		margin-bottom: 6px !important;
+	  }
+	  
+	  .cv__header .contact_info p {
+		font-size: 0.8em !important;
+		margin: 0 !important;
+		line-height: 1.2 !important;
+	  }
+	  
+	  .cv__header .contact_info .icon {
+		margin-right: 6px !important;
+	  }
+	  
+	  .cv__header .contact_info .icon img {
+		width: 14px !important;
+		height: 14px !important;
+	  }
+	  
+	  .cv__header .social {
+		margin: 10px 0 0 0 !important;
+	  }
+	  
+	  .cv__header .social li {
+		margin: 0 6px !important;
+	  }
+	  
+	  .cv__header .social img {
+		width: 20px !important;
+		height: 20px !important;
+	  }
+	  
+	  .cv_download_section {
+		margin: 8px 0 !important;
+	  }
+	  
+	  .cv_download_btn {
+		padding: 6px 12px !important;
+		font-size: 0.75em !important;
 	  }
 	  
 	  /* Responsive adjustments */
 	  @media (max-width: 1024px) {
 		.cv__header {
 		  position: relative !important;
-		  height: auto;
+		  width: 100% !important;
+		  height: auto !important;
+		  overflow: visible !important;
 		}
 		.cv__content {
 		  margin-left: 0;
 		}
+		.cv__header .in {
+		  padding: 20px !important;
+		  height: auto !important;
+		}
 	  }
 	  
 	  /* Add more dark mode overrides as needed for your design */
+	  
+	  /* Reduce hero header section total height */
+	  #hero-header.section_header {
+		min-height: 450px !important;
+		height: 500px !important;
+		padding: 30px 0 !important;
+		overflow: visible !important;
+	  }
+	  
+	  #hero-header .content {
+		height: 100% !important;
+		display: flex !important;
+		align-items: center !important;
+	  }
+	  
+	  /* Move the photo section to the left */
+	  #hero-header .left_hero_header {
+		margin-left: 20px !important;
+		padding-right: 60px !important;
+	  }
 	</style>
 </head>
 
@@ -282,7 +373,11 @@
 					<div class="image-overlay" onclick="closeExpandedImage()"></div>
 					<h3><span>Dinuja</span> Jeyarasa</h3>
 					<p class="quote">Passionate IT student ,UI/UX Designer,QA Engineering and full-stack developer with expertise in modern web technologies.</p>
-					
+					<div class="cv_download_section" style="margin: 8px 0; text-align: center;">
+						<a href="#" class="cv_download_btn" onclick="downloadCV()" style="display: inline-block; background: linear-gradient(135deg, #ff9800, #f57c00); color: #fff; padding: 6px 12px; border-radius: 20px; text-decoration: none; font-weight: 500; font-size: 0.75em; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);">
+							📄 Download CV
+						</a>
+					</div>
 					<ul class="contact_info">
 						<li>
 							<span class="icon"><img src="svg/location.svg" alt="" class="fn__svg"></span>
@@ -315,12 +410,7 @@
 					</li>
 					</ul>
 					
-					<!-- CV Download Button -->
-					<div class="cv_download_section" style="margin: 15px 0 10px 0; text-align: center;">
-						<a href="#" class="cv_download_btn" onclick="downloadCV()" style="display: inline-block; background: linear-gradient(135deg, #ff9800, #f57c00); color: #fff; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 500; font-size: 0.8em; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);">
-							📄 Download CV
-						</a>
-					</div>
+					
 				</div>
 			</div>
 			<!-- /CV Left Side -->
@@ -533,10 +623,10 @@
 						}
 						
 						.skill_badge:hover {
-							border-color: #2196f3;
-							background: #f3f8ff;
+							border-color: #888888;
+							background: #f8f8f8;
 							transform: translateY(-2px);
-							box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
+							box-shadow: 0 4px 15px rgba(136, 136, 136, 0.2);
 						}
 						
 						.skill_badge::before {
@@ -546,7 +636,7 @@
 							left: -100%;
 							width: 100%;
 							height: 100%;
-							background: linear-gradient(90deg, transparent, rgba(33, 150, 243, 0.1), transparent);
+							background: linear-gradient(90deg, transparent, rgba(136, 136, 136, 0.1), transparent);
 							transition: left 0.6s ease;
 						}
 						
@@ -564,7 +654,7 @@
 						}
 						
 						.skill_badge:nth-child(3n+3) {
-							background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+							background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
 						}
 						
 						.skill_badge:nth-child(3n+1):hover {
@@ -578,8 +668,8 @@
 						}
 						
 						.skill_badge:nth-child(3n+3):hover {
-							background: linear-gradient(135deg, #e3f2fd, #64b5f6);
-							border-color: #2196f3;
+							background: linear-gradient(135deg, #e8e8e8, #d0d0d0);
+							border-color: #888888;
 						}
 						
 						/* Dark mode styles */
@@ -599,7 +689,7 @@
 						
 						.dark .skill_badge:hover {
 							background: #333;
-							border-color: #2196f3;
+							border-color: #888888;
 							color: #fff;
 						}
 						
@@ -624,7 +714,7 @@
 						}
 						
 						.dark .skill_badge:nth-child(3n+3):hover {
-							background: linear-gradient(135deg, #404040, #2196f3);
+							background: linear-gradient(135deg, #404040, #666666);
 						}
 						
 						@media (max-width: 768px) {
