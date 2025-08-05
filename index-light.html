@@ -76,6 +76,110 @@
 		filter: invert(0.8);
 	  }
 	  
+	  /* Static left sidebar */
+	  .cv__header {
+		position: fixed !important;
+		top: 0;
+		left: 0;
+		width: 350px !important;
+		height: 100vh;
+		overflow-y: auto;
+		z-index: 100;
+		background: #fff !important;
+	  }
+	  
+	  .cv__content {
+		margin-left: 370px; /* Match sidebar width + some padding */
+	  }
+	  
+	  /* CV Download Button Hover Effect */
+	  .cv_download_btn:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4) !important;
+		background: linear-gradient(135deg, #f57c00, #ff9800) !important;
+	  }
+	  
+	  /* Avatar image styling */
+	  .cv__header .avatar {
+		width: 160px !important;
+		height: 200px !important;
+		margin: 0 auto 25px auto !important;
+		border-radius: 50% !important;
+		overflow: visible !important;
+		border: 3px solid #ff9800 !important;
+		box-shadow: 0 6px 25px rgba(0,0,0,0.15) !important;
+		display: block !important;
+		position: relative !important;
+		background: #f5f5f5 !important;
+		cursor: pointer !important;
+	  }
+	  
+	  .cv__header .avatar img {
+		width: 100% !important;
+		height: 100% !important;
+		object-fit: cover !important;
+		object-position: center !important;
+		display: block !important;
+		border-radius: 50% !important;
+		border: none !important;
+		background: none !important;
+		transition: transform 0.3s ease !important;
+	  }
+	  
+	  /* Hover effect to see full image */
+	  .cv__header .avatar:hover img {
+		transform: scale(1.5) !important;
+		z-index: 1000 !important;
+		position: relative !important;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+	  }
+	  
+	  /* Click to expand full image */
+	  .cv__header .avatar.expanded {
+		position: fixed !important;
+		top: 50% !important;
+		left: 50% !important;
+		transform: translate(-50%, -50%) !important;
+		width: 300px !important;
+		height: 400px !important;
+		z-index: 9999 !important;
+		overflow: visible !important;
+	  }
+	  
+	  .cv__header .avatar.expanded img {
+		transform: none !important;
+		border-radius: 20px !important;
+	  }
+	  
+	  /* Overlay for expanded image */
+	  .image-overlay {
+		position: fixed !important;
+		top: 0 !important;
+		left: 0 !important;
+		width: 100% !important;
+		height: 100% !important;
+		background: rgba(0,0,0,0.8) !important;
+		z-index: 9998 !important;
+		display: none !important;
+	  }
+	  
+	  /* Ensure the container has proper structure */
+	  .cv__header .in {
+		padding: 30px 20px !important;
+		text-align: center !important;
+	  }
+	  
+	  /* Responsive adjustments */
+	  @media (max-width: 1024px) {
+		.cv__header {
+		  position: relative !important;
+		  height: auto;
+		}
+		.cv__content {
+		  margin-left: 0;
+		}
+	  }
+	  
 	  /* Add more dark mode overrides as needed for your design */
 	</style>
 </head>
@@ -171,15 +275,18 @@
 			<!-- CV Left Side -->
 			<div class="cv__header">
 				<div class="in">
-					<div class="avatar">
+					<div class="avatar" onclick="toggleImageExpand(this)">
 						<img src="img/header/dinuja.jpg" alt="Dinuja Jeyarasa">
 					</div>
+					<!-- Image overlay for expanded view -->
+					<div class="image-overlay" onclick="closeExpandedImage()"></div>
 					<h3><span>Dinuja</span> Jeyarasa</h3>
-					<p class="quote">I am a highly motivated and confident third-year undergraduate in the Department of Information Technology at the University of Moratuwa. I have a strong passion for IT, web, and app development. With a firm belief in teamwork, I am committed to delivering the best outcomes and contributing effectively to any organization I work with. Take a look at my portfolio.</p>
+					<p class="quote">Passionate IT student ,UI/UX Designer,QA Engineering and full-stack developer with expertise in modern web technologies.</p>
+					
 					<ul class="contact_info">
 						<li>
 							<span class="icon"><img src="svg/location.svg" alt="" class="fn__svg"></span>
-							<p>Sri Lanka</p>
+							<p>Colombo,Sri Lanka</p>
 						</li>
 						<li>
 							<span class="icon"><img src="svg/call.svg" alt="" class="fn__svg"></span>
@@ -207,6 +314,13 @@
 						</a>
 					</li>
 					</ul>
+					
+					<!-- CV Download Button -->
+					<div class="cv_download_section" style="margin: 15px 0 10px 0; text-align: center;">
+						<a href="#" class="cv_download_btn" onclick="downloadCV()" style="display: inline-block; background: linear-gradient(135deg, #ff9800, #f57c00); color: #fff; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 500; font-size: 0.8em; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);">
+							📄 Download CV
+						</a>
+					</div>
 				</div>
 			</div>
 			<!-- /CV Left Side -->
@@ -236,9 +350,9 @@
 									<!-- It is animation title. You can change animation variation by changing extra class to one of next classes: zoom, rotate-1, letters type, letters rotate-2, loading-bar, slide, clip, letters rotate-3, letters scale, push. cd-headline class can not be removed.  -->
 									<span class="cd-headline clip">
 										<span class="cd-words-wrapper">
-										  <b class="is-visible">Fullstack Developer</b>
-											<b>Problem Solver</b>
-										  <b>UI/UX Designer</b>
+										  <b class="is-visible">UI/UX Designer</b>
+											<b>Quality Assurance Engineer</b>
+										  <b>Fullstack Developer</b>
 										</span>
 									</span>
 								</h3>
@@ -281,7 +395,9 @@
 										<span>(2023 – Present)</span>
 									</div>
 									<h3>B.Sc (Hons) in Information Technology</h3>
+									<p> L2S1 GPA: 3.56/4.0 </p>
 									<p>CGPA: 3.24/4.0</p>
+									
 								</div>
 							</li>
 							<li>
@@ -312,7 +428,7 @@
 				<!-- CV: Experience Section -->
 				<section id="cv_experience">
 					<div class="section_title">
-						<h3>Experience</h3>
+						<h3>Experiences</h3>
 					</div>
 					<div class="fn_cs_boxed_list">
 						<ul>
@@ -671,7 +787,7 @@
 				<!-- CV: Portfolio Section-->
 				<section id="cv_portfolio">
 					<div class="section_title">
-						<h3>Portfolio & Key Projects</h3>
+						<h3>Key Projects</h3>
 					</div>
 					
 					<!-- Portfolio Shortcode -->
@@ -685,7 +801,6 @@
 							<li><a href="#" data-filter=".system">Systems</a></li>
 							<li><a href="#" data-filter=".hardware">Hardware</a></li>
 							<li><a href="#" data-filter=".database">Database</a></li>
-							<li><a href="#" data-filter=".ecommerce">E-commerce</a></li>
 						</ul>
 					</div>
 					<!-- /Portfolio Filter -->
@@ -920,7 +1035,7 @@
 				<!-- CV: Testimonials -->
 				<section id="cv_testimonials">
 					<div class="section_title">
-						<h3>Achievements & Recognition</h3>
+						<h3>Achievements & Recognizations</h3>
 					</div>
 					<p>Throughout my academic and professional journey, I have demonstrated leadership, technical excellence, and commitment to delivering quality results in various roles and projects.</p>
 
@@ -993,13 +1108,14 @@
 							justify-content: center;
 						}
 						.clients_grid {
-							display: flex;
-							flex-wrap: wrap;
+							display: grid;
+							grid-template-columns: repeat(8, 1fr);
 							gap: 18px;
 							justify-content: center;
 							padding: 0;
 							margin: 0;
 							list-style: none;
+							max-width: 640px;
 						}
 						.clients_grid li {
 							background: #fff;
@@ -1042,6 +1158,10 @@
 							filter: none;
 						}
 						@media (max-width: 600px) {
+							.clients_grid {
+								grid-template-columns: repeat(4, 1fr);
+								max-width: 320px;
+							}
 							.clients_grid li {
 								min-width: 44px;
 								min-height: 44px;
@@ -1053,6 +1173,12 @@
 							.clients_grid li img {
 								width: 24px;
 								height: 24px;
+							}
+						}
+						@media (max-width: 768px) and (min-width: 601px) {
+							.clients_grid {
+								grid-template-columns: repeat(6, 1fr);
+								max-width: 480px;
 							}
 						}
 					</style>
@@ -1140,36 +1266,240 @@
 					</div>
 
 <style>
-  /* Contact section smaller input fields and button */
+  /* Contact section modern styling - Compact version */
+  .contact_form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 15px;
+  }
+  
+  .contact_form .items_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .contact_form .items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .contact_form .item {
+    width: 100%;
+  }
+  
+  .contact_form .item.half {
+    width: 100%;
+  }
+  
+  .contact_form .input_wrapper {
+    position: relative;
+  }
+  
+  .contact_form .input_wrapper label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+  }
+  
+  .contact_form .input_wrapper label .required {
+    color: #e74c3c;
+    margin-left: 2px;
+  }
+  
+  .contact_form .input_wrapper .error_message {
+    display: none;
+    color: #e74c3c;
+    font-size: 0.8em;
+    margin-top: 3px;
+    font-weight: 500;
+  }
+  
+  .contact_form .input_wrapper.error input,
+  .contact_form .input_wrapper.error textarea {
+    border-color: #e74c3c !important;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1) !important;
+  }
+  
+  .contact_form .input_wrapper.error .error_message {
+    display: block;
+  }
+  
+  .contact_form .input_wrapper.success input,
+  .contact_form .input_wrapper.success textarea {
+    border-color: #27ae60 !important;
+    box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.1) !important;
+  }
+  
+  .dark .contact_form .input_wrapper label {
+    color: #e0e0e0;
+  }
+  
+  .dark .contact_form .input_wrapper .error_message {
+    color: #ff6b6b;
+  }
+  
   .contact_form .input_wrapper input,
   .contact_form .input_wrapper textarea {
-	font-size: 0.95em;
-	padding: 8px 10px;
-	height: 32px;
-	border-radius: 8px;
-	min-width: 0;
-	width: 100%;
-	box-sizing: border-box;
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+    height: 35px;
   }
+  
+  .contact_form .input_wrapper input:focus,
+  .contact_form .input_wrapper textarea:focus {
+    outline: none;
+    border-color: #2196f3;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+  }
+  
   .contact_form .input_wrapper textarea {
-	min-height: 60px;
-	height: 80px;
-	resize: vertical;
+    min-height: 65px;
+    height: 65px;
+    resize: vertical;
   }
+  
+  .dark .contact_form .input_wrapper input,
+  .dark .contact_form .input_wrapper textarea {
+    background: #333;
+    color: #e0e0e0;
+    border-color: #555;
+  }
+  
+  .dark .contact_form .input_wrapper input:focus,
+  .dark .contact_form .input_wrapper textarea:focus {
+    border-color: #2196f3;
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+  }
+  
   .contact_form .item a#send_message {
-	display: inline-block;
-	font-size: 1em;
-	padding: 8px 22px;
-	border-radius: 8px;
-	background: blue !important;
-	color: #fff !important;
-	border: none;
-	margin-top: 6px;
-	transition: background 0.2s;
-	box-shadow: none;
+    display: inline-block;
+    background: linear-gradient(135deg, #2196f3, #1976d2);
+    color: #fff !important;
+    padding: 10px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(33, 150, 243, 0.3);
   }
+  
   .contact_form .item a#send_message:hover {
-	background: black!important;
+    background: linear-gradient(135deg, #1976d2, #1565c0) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+  }
+  
+  .contact_form .item:last-child {
+    text-align: center;
+    margin-top: 8px;
+  }
+  
+  /* Notification styles */
+  .contact_form .success,
+  .contact_form .empty_notice,
+  .contact_form .error_notice,
+  .contact_form .sending_notice {
+    display: none;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 0.9em;
+    text-align: center;
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .contact_form .success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    box-shadow: 0 2px 8px rgba(39, 174, 96, 0.2);
+  }
+  
+  .contact_form .empty_notice,
+  .contact_form .error_notice {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.2);
+  }
+  
+  .contact_form .sending_notice {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+    box-shadow: 0 2px 8px rgba(23, 162, 184, 0.2);
+  }
+  
+  .dark .contact_form .success {
+    background: #1e4620;
+    color: #4caf50;
+    border-color: #2e7d32;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+  }
+  
+  .dark .contact_form .empty_notice,
+  .dark .contact_form .error_notice {
+    background: #4a1e1e;
+    color: #f44336;
+    border-color: #d32f2f;
+    box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
+  }
+  
+  .dark .contact_form .sending_notice {
+    background: #1e3a4a;
+    color: #2196f3;
+    border-color: #1976d2;
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    .contact_form {
+      padding: 12px;
+    }
+    
+    .contact_form .input_wrapper input,
+    .contact_form .input_wrapper textarea {
+      padding: 6px 10px;
+      font-size: 0.85em;
+      height: 32px;
+    }
+    
+    .contact_form .input_wrapper textarea {
+      min-height: 60px;
+      height: 60px;
+    }
+    
+    .contact_form .item a#send_message {
+      padding: 8px 20px;
+      font-size: 0.9em;
+    }
   }
 </style>
 <form class="contact_form" action="/" method="post" autocomplete="off" data-email="dinujajayarasa@gmail.com">
@@ -1178,34 +1508,41 @@
 							Don't remove below code in avoid to work contact form properly.
 							You can chance dat-success value with your one. It will be used when user will try to contact via contact form and will get success message.
 						-->
-						<div class="success" data-success="Your message has been received, we will contact you soon."></div>
-						<div class="empty_notice"><span>Please Fill Required Fields!</span></div>
+						<div class="success" data-success="✅ Message sent successfully! Thank you for contacting me. I'll get back to you soon."></div>
+						<div class="empty_notice"><span>⚠️ Please enter a valid email address!</span></div>
+						<div class="error_notice" style="display: none;"><span>❌ Failed to send message. Please check your connection and try again.</span></div>
+						<div class="sending_notice" style="display: none;"><span>📤 Sending your message...</span></div>
 						<!-- -->
 
 						<div class="items_wrap">
 							<div class="items">
-								<div class="item half">
+								<div class="item">
 									<div class="input_wrapper">
-										<input id="name" type="text" placeholder="Name *" />
-									</div>
-								</div>
-								<div class="item half">
-									<div class="input_wrapper">
-										<input id="email" type="email" placeholder="Email *" />
+										<label for="name">Your Name</label>
+										<input id="name" name="name" type="text" placeholder="Enter your name" />
 									</div>
 								</div>
 								<div class="item">
 									<div class="input_wrapper">
-										<input id="phone" type="text" placeholder="Phone" />
+										<label for="email">Your Email <span class="required">*</span></label>
+										<input id="email" name="email" type="email" placeholder="Enter your email" required />
+										<div class="error_message">Please enter a valid email address</div>
 									</div>
 								</div>
 								<div class="item">
 									<div class="input_wrapper">
-										<textarea id="message" placeholder="Message"></textarea>
+										<label for="phone">Phone (Optional)</label>
+										<input id="phone" name="phone" type="text" placeholder="Enter your phone number" />
 									</div>
 								</div>
 								<div class="item">
-									<a id="send_message" href="#">Send Message</a>
+									<div class="input_wrapper">
+										<label for="message">Your Message</label>
+										<textarea id="message" name="message" placeholder="Type your message..."></textarea>
+									</div>
+								</div>
+								<div class="item">
+									<a id="send_message" href="#" onclick="sendMessage(event)">Send Message</a>
 								</div>
 							</div>
 						</div>
@@ -1234,6 +1571,8 @@
 <script type="text/javascript" src="js/waypoints.js?ver=4"></script>
 <!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->
 <script type="text/javascript" src="js/init.js?ver=4"></script>
+<!-- EmailJS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <!-- /Scripts -->
 
 <script>
@@ -1262,6 +1601,211 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
   });
 });
+
+// CV Download Function
+function downloadCV() {
+  // Direct download from Google Drive
+  const link = document.createElement('a');
+  link.href = 'https://drive.google.com/uc?id=1kwamzJMFRHc6QV0GJ9G53LL6EAa_Fhyocv';
+  link.download = 'Dinuja_Jeyarasa_CV.pdf';
+  link.target = '_blank'; // Open in new tab as backup
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// EmailJS initialization
+(function() {
+  // Initialize EmailJS with your public key
+  emailjs.init("d9_97ETxQ9q7lY8Zw"); // Replace with your actual EmailJS public key
+})();
+
+// Form validation functions
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+function validatePhone(phone) {
+  if (!phone.trim()) return true; // Optional field
+  const phoneRegex = /^[\+]?[\d\s\-\(\)]{10,}$/;
+  return phoneRegex.test(phone);
+}
+
+function showFieldError(fieldName, message) {
+  const wrapper = document.querySelector(`#${fieldName}`).closest('.input_wrapper');
+  wrapper.classList.add('error');
+  wrapper.classList.remove('success');
+  const errorMsg = wrapper.querySelector('.error_message');
+  if (message) errorMsg.textContent = message;
+}
+
+function showFieldSuccess(fieldName) {
+  const wrapper = document.querySelector(`#${fieldName}`).closest('.input_wrapper');
+  wrapper.classList.add('success');
+  wrapper.classList.remove('error');
+}
+
+function clearFieldStatus(fieldName) {
+  const wrapper = document.querySelector(`#${fieldName}`).closest('.input_wrapper');
+  wrapper.classList.remove('error', 'success');
+}
+
+function validateForm() {
+  let isValid = true;
+  
+  // Clear email field state
+  clearFieldStatus('email');
+  
+  // Validate email only
+  const email = document.getElementById('email').value.trim();
+  if (!email) {
+    showFieldError('email', 'Please enter your email address');
+    isValid = false;
+  } else if (!validateEmail(email)) {
+    showFieldError('email', 'Please enter a valid email address');
+    isValid = false;
+  } else {
+    showFieldSuccess('email');
+  }
+  
+  return isValid;
+}
+
+function showNotification(type) {
+  // Hide all notifications first
+  document.querySelector('.success').style.display = 'none';
+  document.querySelector('.empty_notice').style.display = 'none';
+  document.querySelector('.error_notice').style.display = 'none';
+  document.querySelector('.sending_notice').style.display = 'none';
+  
+  // Show the appropriate notification
+  const notification = document.querySelector(`.${type}`);
+  if (notification) {
+    notification.style.display = 'block';
+    
+    // For success notification, show the message from data-success attribute
+    if (type === 'success') {
+      const successMessage = notification.getAttribute('data-success');
+      notification.innerHTML = `<span>${successMessage}</span>`;
+    }
+    
+    // Auto-hide after different times based on type
+    if (type !== 'sending_notice') {
+      const hideDelay = type === 'success' ? 8000 : 5000; // Success shows longer
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, hideDelay);
+    }
+  }
+}
+
+function sendMessage(event) {
+  event.preventDefault();
+  
+  // Validate form
+  if (!validateForm()) {
+    showNotification('empty_notice');
+    return false;
+  }
+  
+  // Show sending notification
+  showNotification('sending_notice');
+  
+  // Disable send button
+  const sendBtn = document.getElementById('send_message');
+  const originalText = sendBtn.textContent;
+  sendBtn.textContent = 'Sending...';
+  sendBtn.style.pointerEvents = 'none';
+  sendBtn.style.opacity = '0.7';
+  
+  // Prepare template parameters
+  const templateParams = {
+    from_name: document.getElementById('name').value.trim(),
+    from_email: document.getElementById('email').value.trim(),
+    phone: document.getElementById('phone').value.trim() || 'Not provided',
+    message: document.getElementById('message').value.trim(),
+    to_email: 'dinujajayarasa@gmail.com'
+  };
+  
+  // Send email using EmailJS
+  console.log('Sending email with params:', templateParams);
+  
+  emailjs.send('service_cv', 'template_keik38s', templateParams)
+    .then(function(response) {
+      console.log('EMAIL SUCCESS!', response.status, response.text);
+      showNotification('success');
+      
+      // Clear form
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('phone').value = '';
+      document.getElementById('message').value = '';
+      
+      // Clear email field state only
+      clearFieldStatus('email');
+      
+    }, function(error) {
+      console.error('EMAIL FAILED:', error);
+      showNotification('error_notice');
+    })
+    .finally(function() {
+      // Re-enable send button
+      sendBtn.textContent = originalText;
+      sendBtn.style.pointerEvents = 'auto';
+      sendBtn.style.opacity = '1';
+    });
+  
+  return false;
+}
+
+// Real-time validation
+document.addEventListener('DOMContentLoaded', function() {
+  // Add real-time validation listener only for email field
+  const emailField = document.getElementById('email');
+  
+  if (emailField) {
+    emailField.addEventListener('blur', function() {
+      // Validate email on blur if field has content
+      if (this.value.trim()) {
+        validateForm();
+      }
+    });
+    
+    emailField.addEventListener('input', function() {
+      // Clear error state when user starts typing
+      if (this.closest('.input_wrapper').classList.contains('error')) {
+        clearFieldStatus('email');
+      }
+    });
+  }
+});
+
+// Image expand functionality
+function toggleImageExpand(avatarElement) {
+  const overlay = document.querySelector('.image-overlay');
+  
+  if (avatarElement.classList.contains('expanded')) {
+    // Close expanded view
+    avatarElement.classList.remove('expanded');
+    overlay.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  } else {
+    // Open expanded view
+    avatarElement.classList.add('expanded');
+    overlay.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeExpandedImage() {
+  const avatar = document.querySelector('.cv__header .avatar');
+  const overlay = document.querySelector('.image-overlay');
+  
+  avatar.classList.remove('expanded');
+  overlay.style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
 </script>
 </body>
 </html>
