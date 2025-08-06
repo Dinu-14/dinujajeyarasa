@@ -258,8 +258,9 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	-ms-flex-direction: column;
 	-o-flex-direction: column;
 	flex-direction: column;
-	justify-content: center;
-	padding: 40px 10%;
+	justify-content: flex-start;
+	padding: 30px 8%;
+	padding-bottom: 20px;
 	border-radius: 10px;
 	overflow-y: scroll;
 }
@@ -325,7 +326,7 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	padding: 0;
 	list-style-type: none;
 	text-align: left;
-	margin-bottom: 25px;
+	margin-bottom: 10px;
 }
 .cv__header .contact_info .icon{
 	display: block;
@@ -393,6 +394,8 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	-ms-align-items: center;
 	align-items: center;
 	margin-left: -5px;
+	margin-top: 15px;
+	margin-bottom: 10px;
 }
 .deebo_fn__cv .social li{
 	margin: 0;
@@ -2386,10 +2389,35 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	.section_header .left_hero_header{
 		max-width: 100%;
 		padding-right: 0;
-		margin-bottom: 100px;
+		margin-bottom: 60px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	.section_header .circle{
+		width: 280px;
+		height: 280px;
+	}
+	.section_header .circle img,
+	.section_header .circle .bg_img{
+		width: 100%;
+		height: 100%;
+	}
+	.section_header .content{
+		padding-top: 80px;
+		padding-bottom: 80px;
+		min-height: auto;
 	}
 	.my_self{
 		text-align: center;
+	}
+	.my_self h4{
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+	.my_self h3{
+		font-size: 32px;
+		line-height: 1.2;
 	}
 	.clients_wrapper ul li{
 		width: 50%;
@@ -2398,6 +2426,25 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 @media(max-width: 768px){
 	.fn_cs_portfolio .portfolio_list ul li{width: 100%;}
+	
+	/* Improved hero section for mobile */
+	.section_header .left_hero_header{
+		margin-bottom: 40px;
+	}
+	.section_header .circle{
+		width: 220px;
+		height: 220px;
+	}
+	.section_header .content{
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	.my_self h3{
+		font-size: 28px;
+	}
+	.my_self h4{
+		font-size: 18px;
+	}
 }
 @media(max-width: 600px){
 	.tips_content .item{
@@ -2487,6 +2534,56 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 	.right_container{
 		padding: 0 30px;
 	}
+	
+	/* Enhanced mobile hero section */
+	.section_header .left_hero_header{
+		margin-bottom: 30px;
+		width: 100%;
+		padding-right: 0;
+	}
+	.section_header .circle{
+		width: 180px;
+		height: 180px;
+		margin: 0 auto;
+	}
+	.section_header .content{
+		padding-top: 40px;
+		padding-bottom: 40px;
+		text-align: center;
+	}
+	.my_self h3{
+		font-size: 24px;
+		line-height: 1.3;
+	}
+	.my_self h4{
+		font-size: 16px;
+		margin-bottom: 8px;
+	}
+	/* Adjust animated headline for mobile */
+	.cd-headline{
+		font-size: 24px !important;
+	}
+	.cd-words-wrapper b{
+		font-size: 24px !important;
+	}
+	
+	/* Adjust decorative elements for mobile */
+	.section_header .circle_holder_blue span{
+		top: -5px;
+		right: -5px;
+		left: 5px;
+		bottom: 5px;
+	}
+	.section_header .circle_holder_orange span{
+		top: 15px;
+		right: 10px;
+		left: -5px;
+		bottom: -5px;
+	}
+	.section_header .lines span{
+		width: 3px;
+		height: 120%;
+	}
 }
 /* Enable normal scroll on mobile devices */
 @media(max-width: 1040px){
@@ -2503,5 +2600,53 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 		position: relative;
 		height: inherit;
 	}
+}
+
+/* Extra small devices (phones, 480px and down) */
+@media(max-width: 480px){
+	.section_header .circle{
+		width: 150px;
+		height: 150px;
+	}
+	.my_self h3{
+		font-size: 20px;
+		line-height: 1.4;
+	}
+	.my_self h4{
+		font-size: 14px;
+	}
+	.cd-headline{
+		font-size: 20px !important;
+	}
+	.cd-words-wrapper b{
+		font-size: 20px !important;
+	}
+	.section_header .content{
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	.deebo_fn__cv .cv__content section{
+		padding: 20px 15px;
+	}
+	.deebo_fn__cv .cv__header .in{
+		padding: 30px 15px;
+	}
 	
+	/* Further adjust decorative elements for very small screens */
+	.section_header .circle_holder_blue span{
+		top: -3px;
+		right: -3px;
+		left: 3px;
+		bottom: 3px;
+	}
+	.section_header .circle_holder_orange span{
+		top: 10px;
+		right: 7px;
+		left: -3px;
+		bottom: -3px;
+	}
+	.section_header .lines span{
+		width: 2px;
+		height: 110%;
+	}
 }
