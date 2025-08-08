@@ -88,7 +88,7 @@
 		background: #fff !important;
 		display: flex !important;
 		flex-direction: column !important;
-		justify-content: space-between !important;
+		justify-content: space-between !important; /* Back to space-between for better distribution */
 	  }
 	  
 	  .cv__content {
@@ -104,9 +104,9 @@
 	  
 	  /* Avatar image styling */
 	  .cv__header .avatar {
-		width: 120px !important;
-		height: 140px !important;
-		margin: 0 auto 15px auto !important;
+		width: 100px !important; /* Reduced from 120px */
+		height: 120px !important; /* Reduced from 140px */
+		margin: 0 auto 10px auto !important; /* Reduced margin */
 		border-radius: 50% !important;
 		overflow: visible !important;
 		border: 3px solid #ff9800 !important;
@@ -115,6 +115,7 @@
 		position: relative !important;
 		background: #f5f5f5 !important;
 		cursor: pointer !important;
+		flex-shrink: 0 !important; /* Prevent shrinking */
 	  }
 	  
 	  .cv__header .avatar img {
@@ -168,39 +169,40 @@
 	  
 	  /* Ensure the container has proper structure */
 	  .cv__header .in {
-		padding: 20px 15px !important;
+		padding: 15px !important; /* Reduced padding */
 		text-align: center !important;
-		height: 100% !important;
+		height: 100% !important; /* Back to full height */
 		display: flex !important;
 		flex-direction: column !important;
-		justify-content: space-between !important;
+		justify-content: space-between !important; /* Distribute content evenly */
+		align-items: center !important;
 	  }
 	  
 	  /* Optimize text sizes for fitting */
 	  .cv__header h3 {
-		font-size: 1.3em !important;
+		font-size: 1.4em !important; /* Increased by 0.1em */
 		margin: 0 0 8px 0 !important;
 		line-height: 1.1 !important;
 	  }
 	  
 	  .cv__header .quote {
-		font-size: 0.78em !important;
-		line-height: 1.2 !important;
-		margin: 0 0 12px 0 !important;
+		font-size: 0.8em !important; /* Increased by 0.1em */
+		line-height: 1.1 !important; /* Tighter line height */
+		margin: 0 0 8px 0 !important; /* Reduced margin */
 	  }
 	  
 	  .cv__header .contact_info {
-		margin: 10px 0 !important;
+		margin: 8px 0 0 0 !important; /* Reduced further */
 	  }
 	  
 	  .cv__header .contact_info li {
-		margin-bottom: 6px !important;
+		margin-bottom: 4px !important; /* Reduced from 6px */
 	  }
 	  
 	  .cv__header .contact_info p {
-		font-size: 0.8em !important;
+		font-size: 0.8em !important; /* Increased by 0.1em */
 		margin: 0 !important;
-		line-height: 1.2 !important;
+		line-height: 1.1 !important; /* Tighter line height */
 	  }
 	  
 	  .cv__header .contact_info .icon {
@@ -213,25 +215,32 @@
 	  }
 	  
 	  .cv__header .social {
-		margin: 10px 0 0 0 !important;
+		margin: 0 !important; /* Removed all margins */
+		padding-bottom: 20px !important; /* Add bottom padding */
 	  }
 	  
 	  .cv__header .social li {
-		margin: 0 6px !important;
+		margin: 0 8px !important; /* Slightly increased spacing */
+		display: inline-block !important;
 	  }
 	  
 	  .cv__header .social img {
-		width: 20px !important;
-		height: 20px !important;
+		width: 24px !important; /* Increased size */
+		height: 24px !important; /* Increased size */
+		transition: transform 0.3s ease !important;
+	  }
+	  
+	  .cv__header .social a:hover img {
+		transform: scale(1.2) !important; /* Add hover effect */
 	  }
 	  
 	  .cv_download_section {
-		margin: 8px 0 !important;
+		margin: 5px 0 !important; /* Reduced margin */
 	  }
 	  
 	  .cv_download_btn {
-		padding: 6px 12px !important;
-		font-size: 0.75em !important;
+		padding: 5px 10px !important; /* Reduced padding */
+		font-size: 0.8em !important; /* Increased by 0.1em */
 	  }
 	  
 	  /* Responsive adjustments */
@@ -279,16 +288,20 @@
 
 <div class="deebo_fn_main">
 	
+	<!-- CV Download Button -->
+	<div class="cv_download_header">
+		<a href="https://drive.google.com/uc?id=1kwamzJMFRHc6QV0GJ9G53LL6EAa_Fhyo" class="cv_download_btn_header" download="Dinuja_Jeyarasa_CV.pdf" target="_blank">
+			⬇️ CV
+		</a>
+	</div>
+	<!-- /CV Download Button -->
+	
 	<!-- Light/Dark Switcher -->
 	<div class="deebo_fn_switcher_wrap">
-		<label>
-			<span class="light">Light</span>
-				<span class="checkbox_wrap">
-					<input type="checkbox" id="skin_switcher">
-					<span class="slider round"></span>
-				</span>
-			<span class="dark">Dark</span>
-		</label>
+		<div class="theme-toggle">
+			<span class="mode-icon sun-icon" id="sun-toggle" onclick="switchToLight()">☀️</span>
+			<span class="mode-icon moon-icon" id="moon-toggle" onclick="switchToDark()">🌙</span>
+		</div>
 	</div>
 	<!-- /Light/Dark Switcher -->
 	
@@ -373,11 +386,6 @@
 					<div class="image-overlay" onclick="closeExpandedImage()"></div>
 					<h3><span>Dinuja</span> Jeyarasa</h3>
 					<p class="quote">Passionate IT student ,UI/UX Designer,QA Engineering and full-stack developer with expertise in modern web technologies.</p>
-					<div class="cv_download_section" style="margin: 8px 0; text-align: center;">
-						<a href="https://drive.google.com/uc?id=1kwamzJMFRHc6QV0GJ9G53LL6EAa_Fhyo" class="cv_download_btn" download="Dinuja_Jeyarasa_CV.pdf" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #ff9800, #f57c00); color: #fff; padding: 6px 12px; border-radius: 20px; text-decoration: none; font-weight: 500; font-size: 0.75em; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(255, 152, 0, 0.3);">
-							📄 Download CV
-						</a>
-					</div>
 					<ul class="contact_info">
 						<li>
 							<span class="icon"><img src="svg/location.svg" alt="" class="fn__svg"></span>
@@ -458,15 +466,7 @@
 						<h3>Biography</h3>
 					</div>
 					<p>I'm a motivated and confident third-year Information Technology undergraduate at the University of Moratuwa. I’m passionate about IT, web, and app development, and I thrive in collaborative environments. I’m driven to deliver high-quality results and contribute meaningfully to any team or organization I join.</p>
-					<div class="fn_cs_info_items">
-						<ul>
-							<li><p>Name: <span>Dinuja Jeyarasa</span></p></li>
-							<li><p>Languages: <span>English, Tamil</span></p></li>
-							<li><p>Nationality: <span>Sri Lankan</span></p></li>
-							<li><p>Phone: <span><a href="tel:+94781373748">+94 781373748</a></span></p></li>
-							<li><p>Email: <span><a href="mailto:dinujajayarasa@gmail.com">dinujajayarasa@gmail.com</a></span></p></li>
-						</ul>
-					</div>
+					
 				</section>
 				<!-- /CV: Biography Section -->
 
@@ -1668,29 +1668,64 @@
 <script>
 // Light/Dark mode switcher
 document.addEventListener('DOMContentLoaded', function() {
-  var switcher = document.getElementById('skin_switcher');
   var body = document.body;
+  var sunIcon = document.getElementById('sun-toggle');
+  var moonIcon = document.getElementById('moon-toggle');
+  
   // Set initial mode
   var theme = localStorage.getItem('theme');
   if (theme === 'dark') {
 	body.classList.add('dark');
-	switcher.checked = true;
+	updateIcons(true);
   } else {
 	body.classList.add('light');
-	switcher.checked = false;
+	updateIcons(false);
   }
-  switcher.addEventListener('change', function() {
-	if (switcher.checked) {
-	  body.classList.remove('light');
-	  body.classList.add('dark');
-	  localStorage.setItem('theme', 'dark');
+  
+  function updateIcons(isDark) {
+	if (isDark) {
+	  sunIcon.classList.remove('active');
+	  moonIcon.classList.add('active');
+	  sunIcon.style.opacity = '0.5';
+	  moonIcon.style.opacity = '1';
 	} else {
-	  body.classList.remove('dark');
-	  body.classList.add('light');
-	  localStorage.setItem('theme', 'light');
+	  moonIcon.classList.remove('active');
+	  sunIcon.classList.add('active');
+	  sunIcon.style.opacity = '1';
+	  moonIcon.style.opacity = '0.5';
 	}
-  });
+  }
 });
+
+function switchToLight() {
+  var body = document.body;
+  var sunIcon = document.getElementById('sun-toggle');
+  var moonIcon = document.getElementById('moon-toggle');
+  
+  body.classList.remove('dark');
+  body.classList.add('light');
+  localStorage.setItem('theme', 'light');
+  
+  moonIcon.classList.remove('active');
+  sunIcon.classList.add('active');
+  sunIcon.style.opacity = '1';
+  moonIcon.style.opacity = '0.5';
+}
+
+function switchToDark() {
+  var body = document.body;
+  var sunIcon = document.getElementById('sun-toggle');
+  var moonIcon = document.getElementById('moon-toggle');
+  
+  body.classList.remove('light');
+  body.classList.add('dark');
+  localStorage.setItem('theme', 'dark');
+  
+  sunIcon.classList.remove('active');
+  moonIcon.classList.add('active');
+  sunIcon.style.opacity = '0.5';
+  moonIcon.style.opacity = '1';
+}
 
 // CV Download Function
 function downloadCV() {

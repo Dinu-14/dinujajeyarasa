@@ -545,6 +545,78 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 .deebo_fn_switcher_wrap .slider.round:before {
 	border-radius: 50%;
 }
+/* Moon and Sun icon styles */
+.deebo_fn_switcher_wrap .theme-toggle {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	height: 36px;
+	padding: 0 15px;
+	margin: 7px 0;
+	background-color: #191919;
+	border-radius: 30px;
+	box-shadow: 0px 3px 4px rgb(0 0 0 / 30%);
+}
+.deebo_fn_switcher_wrap .mode-icon {
+	font-size: 20px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	padding: 5px;
+	border-radius: 50%;
+	user-select: none;
+}
+.deebo_fn_switcher_wrap .mode-icon:hover {
+	transform: scale(1.1);
+	background-color: rgba(255, 255, 255, 0.1);
+}
+.deebo_fn_switcher_wrap .sun-icon {
+	opacity: 1;
+}
+.deebo_fn_switcher_wrap .moon-icon {
+	opacity: 0.5;
+}
+.deebo_fn_switcher_wrap .sun-icon.active {
+	opacity: 1;
+	background-color: rgba(255, 152, 0, 0.2);
+}
+.deebo_fn_switcher_wrap .moon-icon.active {
+	opacity: 1;
+	background-color: rgba(100, 149, 237, 0.2);
+}
+/* CV Download Button in Header */
+.cv_download_header {
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	right: 200px;
+	left: auto;
+	width: auto;
+}
+.cv_download_btn_header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 36px;
+	padding: 0 15px;
+	margin: 7px 0;
+	
+	background: linear-gradient(135deg, #ffa726, #f57c00);
+	color: #fff;
+	border-radius: 30px;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 14px;
+	transition: all 0.3s ease;
+	box-shadow: 0px 3px 4px rgb(0 0 0 / 30%);
+	cursor: pointer;
+	user-select: none;
+}
+.cv_download_btn_header:hover {
+	transform: translateY(-1px);
+	box-shadow: 0px 5px 8px rgb(0 0 0 / 40%);
+	background: linear-gradient(135deg, hsl(195, 100%, 50%), hsl(205, 99%, 48%));
+	
+}
 /*------------------------------------------------------------------*/
 /*	03) Section Hero Header
 /*------------------------------------------------------------------*/
@@ -2286,6 +2358,27 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 }
 .light .deebo_fn_switcher_wrap input:checked + .slider:before{
 	background-color: #000;
+}
+/* Light mode icon adjustments */
+.light .deebo_fn_switcher_wrap .theme-toggle {
+	background-color: #fff;
+}
+.light .deebo_fn_switcher_wrap .mode-icon:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.light .deebo_fn_switcher_wrap .sun-icon.active {
+	background-color: rgba(255, 152, 0, 0.3);
+}
+.light .deebo_fn_switcher_wrap .moon-icon.active {
+	background-color: rgba(100, 149, 237, 0.3);
+}
+/* Light mode CV download button */
+.light .cv_download_btn_header {
+	background: linear-gradient(135deg, #ff9800, #f57c00);
+	color: #fff;
+}
+.light .cv_download_btn_header:hover {
+	background: linear-gradient(135deg, #ffa726, #f57c00);
 }
 /*------------------------------------------------------------------*/
 /*	14) Responsive
