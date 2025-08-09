@@ -107,7 +107,7 @@
 		width: 100px !important; /* Reduced from 120px */
 		height: 120px !important; /* Reduced from 140px */
 		margin: 0 auto 10px auto !important; /* Reduced margin */
-		border-radius: 50% !important;
+		border-radius: 50% 50% 50% 50% / 60% 60% 40% 40% !important; /* Oval shape */
 		overflow: visible !important;
 		border: 3px solid #ff9800 !important;
 		box-shadow: 0 6px 25px rgba(0,0,0,0.15) !important;
@@ -124,7 +124,7 @@
 		object-fit: cover !important;
 		object-position: center !important;
 		display: block !important;
-		border-radius: 50% !important;
+		border-radius: 50% 50% 50% 50% / 60% 60% 40% 40% !important; /* Oval shape */
 		border: none !important;
 		background: none !important;
 		transition: transform 0.3s ease !important;
@@ -244,6 +244,11 @@
 		font-size: 0.8em !important; /* Increased by 0.1em */
 	  }
 	  
+	  /* Hide mobile animation title on desktop */
+	  .mobile-animation-title {
+		display: none !important;
+	  }
+	  
 	  /* Responsive adjustments */
 	  @media (max-width: 1024px) {
 		.cv__header {
@@ -258,6 +263,219 @@
 		.cv__header .in {
 		  padding: 20px !important;
 		  height: auto !important;
+		}
+		
+		/* Hide hero header section on mobile to avoid duplication */
+		#hero-header.section_header {
+		  display: none !important;
+		}
+		
+		/* Reorganize mobile layout */
+		.deebo_fn__cv {
+		  flex-direction: column;
+		}
+		
+		.cv__header {
+		  order: 1;
+		  margin-bottom: 0 !important;
+		}
+		
+		.cv__content {
+		  order: 2;
+		}
+		
+		/* Mobile header layout reorganization */
+		.cv__header .in {
+		  display: flex !important;
+		  flex-direction: column !important;
+		  align-items: center !important;
+		  text-align: center !important;
+		  padding: 30px 20px !important;
+		}
+		
+		/* Header image first */
+		.cv__header .avatar {
+		  order: 1;
+		  width: 120px !important;
+		  height: 140px !important;
+		  margin: 0 auto 20px auto !important;
+		  flex-shrink: 0 !important;
+		  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40% !important; /* Oval shape */
+		}
+		
+		.cv__header .avatar img {
+		  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40% !important; /* Oval shape */
+		}
+		
+		/* Name second */
+		.cv__header h3 {
+		  order: 2;
+		  font-size: 24px !important;
+		  margin: 0 0 20px 0 !important;
+		}
+		
+		/* Animation title section third */
+		.mobile-animation-title {
+		  display: block !important;
+		  order: 3;
+		  width: 100%;
+		  margin: 0 0 20px 0;
+		  text-align: center;
+		}
+		
+		.mobile-animation-title h4 {
+		  font-size: 18px;
+		  color: #666;
+		  margin-bottom: 10px;
+		  font-weight: 400;
+		}
+		
+		.mobile-animation-title h3 {
+		  font-size: 28px;
+		  font-weight: 600;
+		  line-height: 1.3;
+		  margin: 0;
+		}
+		
+		/* Ensure animated headlines work on mobile */
+		.mobile-animation-title .cd-headline {
+		  font-size: 28px !important;
+		  line-height: 1.3;
+		}
+		
+		.mobile-animation-title .cd-words-wrapper b {
+		  font-size: 28px !important;
+		}
+		
+		/* Quote fourth */
+		.cv__header .quote {
+		  order: 4;
+		  font-size: 16px !important;
+		  line-height: 1.4 !important;
+		  margin: 0 0 25px 0 !important;
+		  color: #777;
+		}
+		  order: 4;
+		  font-size: 16px !important;
+		  line-height: 1.4 !important;
+		  margin: 0 0 25px 0 !important;
+		  color: #777;
+		}
+		
+		/* Personal details fifth */
+		.cv__header .contact_info {
+		  order: 5;
+		  margin: 0 0 25px 0 !important;
+		  width: 100%;
+		}
+		
+		.cv__header .contact_info li {
+		  margin-bottom: 8px !important;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		}
+		
+		.cv__header .contact_info p {
+		  font-size: 16px !important;
+		  margin: 0 !important;
+		}
+		
+		/* Social media icons sixth */
+		.cv__header .social {
+		  order: 6;
+		  margin: 0 !important;
+		  padding: 0 !important;
+		  display: flex !important;
+		  justify-content: center !important;
+		  gap: 15px !important;
+		}
+		
+		.cv__header .social li {
+		  margin: 0 !important;
+		}
+		
+		.cv__header .social img {
+		  width: 28px !important;
+		  height: 28px !important;
+		}
+	  }
+	  
+	  /* Tablet and smaller mobile adjustments */
+	  @media (max-width: 768px) {
+		.cv__header .avatar {
+		  width: 100px !important;
+		  height: 120px !important;
+		  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40% !important; /* Maintain oval shape */
+		}
+		
+		.cv__header .avatar img {
+		  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40% !important; /* Maintain oval shape */
+		}
+		
+		.mobile-animation-title h3 {
+		  font-size: 24px;
+		}
+		
+		.mobile-animation-title .cd-headline {
+		  font-size: 24px !important;
+		}
+		
+		.mobile-animation-title .cd-words-wrapper b {
+		  font-size: 24px !important;
+		}
+		
+		.cv__header h3 {
+		  font-size: 22px !important;
+		}
+		
+		.cv__header .quote {
+		  font-size: 15px !important;
+		}
+		
+		.cv__header .contact_info p {
+		  font-size: 15px !important;
+		}
+	  }
+	  
+	  /* Small mobile adjustments */
+	  @media (max-width: 480px) {
+		.cv__header .avatar {
+		  width: 80px !important;
+		  height: 80px !important;
+		}
+		
+		.mobile-animation-title h4 {
+		  font-size: 16px;
+		}
+		
+		.mobile-animation-title h3 {
+		  font-size: 20px;
+		}
+		
+		.mobile-animation-title .cd-headline {
+		  font-size: 20px !important;
+		}
+		
+		.mobile-animation-title .cd-words-wrapper b {
+		  font-size: 20px !important;
+		}
+		
+		.cv__header h3 {
+		  font-size: 20px !important;
+		}
+		
+		.cv__header .quote {
+		  font-size: 14px !important;
+		}
+		
+		.cv__header .contact_info p {
+		  font-size: 14px !important;
+		}
+		
+		.cv__header .social img {
+		  width: 24px !important;
+		  height: 24px !important;
 		}
 	  }
 	  
@@ -385,6 +603,22 @@
 					</div>
 					<!-- Image overlay for expanded view -->
 					<div class="image-overlay" onclick="closeExpandedImage()"></div>
+					
+					
+					<!-- Mobile Animation Title (hidden on desktop) -->
+					<div class="mobile-animation-title">
+						<h4>Hello! I'm a</h4>
+						<h3>
+							<span class="cd-headline clip">
+								<span class="cd-words-wrapper">
+								  <b class="is-visible">UI/UX Designer</b>
+									<b>Quality Assurance Engineer</b>
+								  <b>Fullstack Developer</b>
+								</span>
+							</span>
+						</h3>
+					</div>
+					
 					<h3><span>Dinuja</span> Jeyarasa</h3>
 					<p class="quote">Passionate IT student ,UI/UX Designer,QA Engineering and full-stack developer with expertise in modern web technologies.</p>
 					<ul class="contact_info">
