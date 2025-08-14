@@ -643,7 +643,9 @@ body.resume-opened .deebo_fn__cv .cv__bg2{
 .section_header .left_hero_header{
 	width: 475px;
 	max-width: 40%;
-	padding-right: 80px;
+	padding-right: 20px !important; /* Force reduced padding */
+	margin-left: 200px !important; /* Force move closer to text section */
+	transform: translateX(40px) !important; /* Move closer to the spanning/text section */
 }
 .section_header .circle{
 	position: relative;

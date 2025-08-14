@@ -83,12 +83,12 @@
 		left: 0;
 		width: 380px !important;
 		height: 100vh;
-		overflow: hidden !important; /* Remove scrolling */
+		overflow-y: auto !important; /* Allow vertical scrolling to see all content */
 		z-index: 100;
 		background: #fff !important;
 		display: flex !important;
 		flex-direction: column !important;
-		justify-content: space-between !important; /* Back to space-between for better distribution */
+		justify-content: flex-start !important; /* Changed from space-between to fit content */
 	  }
 	  
 	  .cv__content {
@@ -104,11 +104,11 @@
 	  
 	  /* Avatar image styling */
 	  .cv__header .avatar {
-		width: 100px !important; /* Reduced from 120px */
-		height: 120px !important; /* Reduced from 140px */
+		width: 120px !important; /* Reduced from 120px */
+		height: 150px !important; /* Made more oval by increasing height */
 		margin: 0 auto 10px auto !important; /* Reduced margin */
-		border-radius: 50% !important;
-		overflow: visible !important;
+		border-radius: 50% 50% 50% 50% / 60% 60% 40% 40% !important; /* Better oval shape */
+		overflow: hidden !important; /* Hide overflow for clean oval */
 		border: 3px solid #ff9800 !important;
 		box-shadow: 0 6px 25px rgba(0,0,0,0.15) !important;
 		display: block !important;
@@ -124,7 +124,7 @@
 		object-fit: cover !important;
 		object-position: center !important;
 		display: block !important;
-		border-radius: 50% !important;
+		border-radius: 50% 50% 50% 50% / 60% 60% 40% 40% !important; /* Better oval shape */
 		border: none !important;
 		background: none !important;
 		transition: transform 0.3s ease !important;
@@ -171,36 +171,38 @@
 	  .cv__header .in {
 		padding: 15px !important; /* Reduced padding */
 		text-align: center !important;
-		height: 100% !important; /* Back to full height */
+		height: auto !important; /* Allow natural height */
 		display: flex !important;
 		flex-direction: column !important;
-		justify-content: space-between !important; /* Distribute content evenly */
+		justify-content: flex-start !important; /* Start from top instead of space-between */
 		align-items: center !important;
+		min-height: 100vh !important; /* Ensure it takes full height but can expand */
 	  }
 	  
 	  /* Optimize text sizes for fitting */
 	  .cv__header h3 {
-		font-size: 1.4em !important; /* Increased by 0.1em */
-		margin: 0 0 8px 0 !important;
+		font-size: 1.5em !important; /* Increased by 1 unit */
+		margin: 0 0 12px 0 !important; /* Add small gap before quote */
 		line-height: 1.1 !important;
 	  }
 	  
 	  .cv__header .quote {
-		font-size: 0.8em !important; /* Increased by 0.1em */
+		font-size: 0.9em !important; /* Increased by 1 unit */
 		line-height: 1.1 !important; /* Tighter line height */
-		margin: 0 0 8px 0 !important; /* Reduced margin */
+		margin: 0 0 15px 0 !important; /* Add bottom margin for gap before contact info */
 	  }
 	  
 	  .cv__header .contact_info {
-		margin: 8px 0 0 0 !important; /* Reduced further */
+		margin: 8px 0 15px 0 !important; /* Add bottom margin for gap before social icons */
 	  }
 	  
 	  .cv__header .contact_info li {
-		margin-bottom: 4px !important; /* Reduced from 6px */
+		margin-bottom: 8px !important; /* Add space between contact items */
+	  }
 	  }
 	  
 	  .cv__header .contact_info p {
-		font-size: 0.8em !important; /* Increased by 0.1em */
+		font-size: 0.9em !important; /* Increased by 1 unit */
 		margin: 0 !important;
 		line-height: 1.1 !important; /* Tighter line height */
 	  }
@@ -215,8 +217,14 @@
 	  }
 	  
 	  .cv__header .social {
-		margin: 0 !important; /* Removed all margins */
+		margin: 5px 0 0 0 !important; /* Small positive margin to ensure visibility */
 		padding-bottom: 20px !important; /* Add bottom padding */
+	  }
+	  
+	  /* Additional override with higher specificity */
+	  .deebo_fn__cv .cv__header .social {
+		margin-top: 5px !important; /* Override external CSS with small margin */
+		margin-bottom: 0 !important;
 	  }
 	  
 	  .cv__header .social li {
@@ -243,6 +251,11 @@
 		font-size: 0.8em !important; /* Increased by 0.1em */
 	  }
 	  
+	  /* Hide mobile animation title on desktop */
+	  .mobile-animation-title {
+		display: none !important;
+	  }
+	  
 	  /* Responsive adjustments */
 	  @media (max-width: 1024px) {
 		.cv__header {
@@ -257,6 +270,263 @@
 		.cv__header .in {
 		  padding: 20px !important;
 		  height: auto !important;
+		  margin-bottom: 0 !important;
+		  min-height: auto !important; /* Remove min-height on mobile */
+		}
+		
+		/* Hide hero header section on mobile to avoid duplication */
+		#hero-header.section_header {
+		  display: none !important;
+		}
+		
+		/* Reorganize mobile layout */
+		.deebo_fn__cv {
+		  flex-direction: column;
+		}
+		
+		.cv__header {
+		  order: 1;
+		  margin-bottom: 0 !important;
+		}
+		
+		.cv__content {
+		  order: 2;
+		}
+		
+		/* Mobile header layout reorganization */
+		.cv__header .in {
+		  display: flex !important;
+		  flex-direction: column !important;
+		  align-items: center !important;
+		  text-align: center !important;
+		  padding: 30px 20px !important;
+		  min-height: auto !important; /* Remove min-height on mobile */
+		}
+		
+		/* Header image first */
+		.cv__header .avatar {
+		  order: 1;
+		  width: 120px !important;
+		  height: 150px !important; /* Enhanced oval height for mobile */
+		  margin: 0 auto 20px auto !important;
+		  flex-shrink: 0 !important;
+		  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40% !important; /* Better oval shape */
+		  overflow: hidden !important; /* Ensure clean oval on mobile */
+		}
+		
+		.cv__header .avatar img {
+		  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40% !important; /* Better oval shape */
+		}
+		
+		/* Name second */
+		.cv__header h3 {
+		  order: 2;
+		  font-size: 24px !important;
+		  margin: 0 0 20px 0 !important;
+		}
+		
+		/* Animation title section third */
+		.mobile-animation-title {
+		  display: block !important;
+		  order: 3;
+		  width: 100%;
+		  margin: 0 0 20px 0;
+		  text-align: center;
+		}
+		
+		.mobile-animation-title h4 {
+		  font-size: 18px;
+		  color: #666;
+		  margin-bottom: 10px;
+		  font-weight: 400;
+		}
+		
+		.mobile-animation-title h3 {
+		  font-size: 28px;
+		  font-weight: 600;
+		  line-height: 1.3;
+		  margin: 0;
+		}
+		
+		/* Ensure animated headlines work on mobile */
+		.mobile-animation-title .cd-headline {
+		  font-size: 28px !important;
+		  line-height: 1.3;
+		}
+		
+		.mobile-animation-title .cd-words-wrapper b {
+		  font-size: 28px !important;
+		}
+		
+		/* Quote fourth - hidden on mobile */
+		.cv__header .quote {
+		  display: none !important; /* Hide quote on mobile */
+		  order: 4;
+		  font-size: 16px !important;
+		  line-height: 1.4 !important;
+		  margin: 0 0 25px 0 !important;
+		  color: #777;
+		}
+		
+		/* Personal details fifth - compact single line layout */
+		.cv__header .contact_info {
+		  order: 5;
+		  margin: 0 0 15px 0 !important; /* Add small bottom margin */
+		  width: 100%;
+		  display: flex !important;
+		  flex-direction: row !important; /* Horizontal layout */
+		  justify-content: center !important;
+		  gap: 15px !important; /* Space between items */
+		  flex-wrap: wrap !important; /* Allow wrapping if needed */
+		}
+		
+		.cv__header .contact_info li {
+		  margin-bottom: 0 !important; /* Remove bottom margin */
+		  display: flex !important;
+		  align-items: center !important;
+		  flex-shrink: 0 !important;
+		  background: rgba(0, 0, 0, 0.05) !important; /* Light background */
+		  padding: 5px 10px !important; /* Compact padding */
+		  border-radius: 15px !important; /* Rounded corners */
+		  font-size: 14px !important; /* Smaller font */
+		}
+		
+		.dark .cv__header .contact_info li {
+		  background: rgba(255, 255, 255, 0.1) !important; /* Dark mode background */
+		}
+		
+		.cv__header .contact_info p {
+		  font-size: 13px !important; /* Smaller text */
+		  margin: 0 !important;
+		  white-space: nowrap !important; /* Prevent text wrapping */
+		}
+		
+		.cv__header .contact_info .icon {
+		  margin-right: 4px !important; /* Reduce icon spacing */
+		}
+		
+		.cv__header .contact_info .icon img {
+		  width: 12px !important; /* Smaller icons */
+		  height: 12px !important;
+		}
+		
+		/* Social media icons sixth */
+		.cv__header .social {
+		  order: 6;
+		  margin: 10px 0 0 0 !important; /* Small positive margin for visibility */
+		  padding: 0 !important;
+		  display: flex !important;
+		  justify-content: center !important;
+		  gap: 15px !important;
+		}
+		
+		.cv__header .social li {
+		  margin: 0 !important;
+		}
+		
+		.cv__header .social img {
+		  width: 28px !important;
+		  height: 28px !important;
+		}
+	  }
+	  
+	  /* Tablet and smaller mobile adjustments */
+	  @media (max-width: 768px) {
+		.cv__header {
+		  min-height: auto !important;
+		}
+		
+		.cv__header .in {
+		  min-height: auto !important;
+		  padding: 25px 20px !important;
+		}
+		
+		.cv__header .avatar {
+		  width: 100px !important;
+		  height: 130px !important; /* Enhanced oval height for tablet */
+		  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40% !important; /* Better oval shape */
+		  overflow: hidden !important; /* Clean oval on tablet */
+		}
+		
+		.cv__header .avatar img {
+		  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40% !important; /* Better oval shape */
+		}
+		
+		.mobile-animation-title h3 {
+		  font-size: 24px;
+		}
+		
+		.mobile-animation-title .cd-headline {
+		  font-size: 24px !important;
+		}
+		
+		.mobile-animation-title .cd-words-wrapper b {
+		  font-size: 24px !important;
+		}
+		
+		.cv__header h3 {
+		  font-size: 22px !important;
+		}
+		
+		.cv__header .quote {
+		  font-size: 15px !important;
+		}
+		
+		.cv__header .contact_info p {
+		  font-size: 15px !important;
+		}
+	  }
+	  
+	  /* Small mobile adjustments */
+	  @media (max-width: 480px) {
+		.cv__header .avatar {
+		  width: 80px !important;
+		  height: 80px !important;
+		}
+
+				.cv__header {
+					height: auto !important;
+					margin-bottom: 0 !important;
+				}
+
+				.cv__header .in {
+					height: auto !important;
+					margin-bottom: 0 !important;
+					min-height: auto !important; /* Remove min-height on small mobile */
+					padding: 20px !important; /* Reduce padding on small mobile */
+				}
+		
+		.mobile-animation-title h4 {
+		  font-size: 16px;
+		}
+		
+		.mobile-animation-title h3 {
+		  font-size: 20px;
+		}
+		
+		.mobile-animation-title .cd-headline {
+		  font-size: 20px !important;
+		}
+		
+		.mobile-animation-title .cd-words-wrapper b {
+		  font-size: 20px !important;
+		}
+		
+		.cv__header h3 {
+		  font-size: 20px !important;
+		}
+		
+		.cv__header .quote {
+		  font-size: 14px !important;
+		}
+		
+		.cv__header .contact_info p {
+		  font-size: 14px !important;
+		}
+		
+		.cv__header .social img {
+		  width: 24px !important;
+		  height: 24px !important;
 		}
 	  }
 	  
@@ -265,7 +535,7 @@
 	  /* Reduce hero header section total height */
 	  #hero-header.section_header {
 		min-height: 450px !important;
-		height: 600px !important;
+		height: 500px !important;
 		padding: 30px 0 !important;
 		overflow: visible !important;
 	  }
@@ -278,8 +548,125 @@
 	  
 	  /* Move the photo section to the left */
 	  #hero-header .left_hero_header {
-		margin-left: 50px !important;
-		padding-right: 50px !important;
+		margin-left: 20px !important;
+		padding-right: 60px !important;
+	  }
+	  
+	  /* Mobile Fixed Header Bar */
+	  .mobile-header-bar {
+		display: none; /* Hidden by default on desktop */
+	  }
+	  
+	  @media (max-width: 1024px) {
+		/* Show mobile header bar on mobile */
+		.mobile-header-bar {
+		  display: flex !important;
+		  position: fixed !important;
+		  top: 0 !important;
+		  left: 0 !important;
+		  right: 0 !important;
+		  width: 100% !important;
+		  height: 70px !important;
+		  background: rgba(255, 255, 255, 0.98) !important;
+		  backdrop-filter: blur(20px) !important;
+		  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+		  z-index: 1000 !important;
+		  justify-content: flex-end !important; /* Move everything to right side like desktop */
+		  align-items: center !important;
+		  padding: 0 25px !important;
+		  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08) !important;
+		  gap: 15px !important; /* Add gap between CV button and theme toggle */
+		}
+		
+		/* Dark mode mobile header */
+		.dark .mobile-header-bar {
+		  background: rgba(34, 34, 34, 0.98) !important;
+		  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+		  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3) !important;
+		}
+		
+		/* Position CV download button in mobile header - match desktop style */
+		.mobile-header-bar .cv_download_header {
+		  position: static !important;
+		  margin: 0 !important;
+		}
+		
+		.mobile-header-bar .cv_download_btn_header {
+		  background: #ff9800 !important;
+		  color: white !important;
+		  padding: 10px 20px !important;
+		  border-radius: 25px !important;
+		  text-decoration: none !important;
+		  font-size: 14px !important;
+		  font-weight: 600 !important;
+		  transition: all 0.3s ease !important;
+		  border: none !important;
+		  display: inline-flex !important;
+		  align-items: center !important;
+		  gap: 8px !important;
+		  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2) !important;
+		  text-transform: uppercase !important;
+		  letter-spacing: 0.5px !important;
+		}
+		
+		.mobile-header-bar .cv_download_btn_header:hover {
+		  background: #f57c00 !important;
+		  transform: translateY(-2px) !important;
+		  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4) !important;
+		}
+		
+		/* Position theme toggle in mobile header - match desktop style */
+		.mobile-header-bar .deebo_fn_switcher_wrap {
+		  position: static !important;
+		  margin: 0 !important;
+		}
+		
+		.mobile-header-bar .theme-toggle {
+		  display: flex !important;
+		  align-items: center !important;
+		  gap: 8px !important;
+		  background: rgba(255, 255, 255, 0.1) !important;
+		  padding: 8px 16px !important;
+		  border-radius: 25px !important;
+		  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+		  backdrop-filter: blur(10px) !important;
+		}
+		
+		.dark .mobile-header-bar .theme-toggle {
+		  background: rgba(255, 255, 255, 0.15) !important;
+		  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+		}
+		
+		.mobile-header-bar .mode-icon {
+		  font-size: 20px !important;
+		  cursor: pointer !important;
+		  transition: all 0.3s ease !important;
+		  padding: 4px !important;
+		  border-radius: 50% !important;
+		  display: flex !important;
+		  align-items: center !important;
+		  justify-content: center !important;
+		}
+		
+		.mobile-header-bar .mode-icon:hover {
+		  transform: scale(1.15) !important;
+		  background: rgba(255, 255, 255, 0.2) !important;
+		}
+		
+		.dark .mobile-header-bar .mode-icon:hover {
+		  background: rgba(255, 255, 255, 0.25) !important;
+		}
+		
+		/* Add top padding to content to account for fixed header */
+		.deebo_fn__cv {
+		  padding-top: 70px !important;
+		}
+		
+		/* Hide desktop CV download and switcher on mobile */
+		.cv_download_header.desktop-only,
+		.deebo_fn_switcher_wrap.desktop-only {
+		  display: none !important;
+		}
 	  }
 	</style>
 </head>
@@ -288,22 +675,40 @@
 
 <div class="deebo_fn_main">
 	
-	<!-- CV Download Button -->
-	<div class="cv_download_header">
-		<a href="https://drive.google.com/uc?id=1kwamzJMFRHc6QV0GJ9G53LL6EAa_Fhyo" class="cv_download_btn_header" download="Dinuja_Jeyarasa_CV.pdf" target="_blank">
+	<!-- Mobile Header Bar (visible only on mobile) -->
+	<div class="mobile-header-bar">
+		<!-- CV Download Button for Mobile -->
+		<div class="cv_download_header">
+			<a href="#" class="cv_download_btn_header" onclick="downloadCV()">
+				⬇️ CV
+			</a>
+		</div>
+		
+		<!-- Light/Dark Switcher for Mobile -->
+		<div class="deebo_fn_switcher_wrap">
+			<div class="theme-toggle">
+				<span class="mode-icon sun-icon" id="sun-toggle-mobile" onclick="switchToLight()">☀️</span>
+				<span class="mode-icon moon-icon" id="moon-toggle-mobile" onclick="switchToDark()">🌙</span>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Desktop CV Download Button (hidden on mobile) -->
+	<div class="cv_download_header desktop-only">
+		<a href="#" class="cv_download_btn_header" onclick="downloadCV()">
 			⬇️ CV
 		</a>
 	</div>
-	<!-- /CV Download Button -->
+	<!-- /Desktop CV Download Button -->
 	
-	<!-- Light/Dark Switcher -->
-	<div class="deebo_fn_switcher_wrap">
+	<!-- Desktop Light/Dark Switcher (hidden on mobile) -->
+	<div class="deebo_fn_switcher_wrap desktop-only">
 		<div class="theme-toggle">
-			<span class="mode-icon sun-icon" id="sun-toggle" onclick="switchToLight()">☀️</span>
-			<span class="mode-icon moon-icon" id="moon-toggle" onclick="switchToDark()">🌙</span>
+			<span class="mode-icon sun-icon" id="sun-toggle-desktop" onclick="switchToLight()">☀️</span>
+			<span class="mode-icon moon-icon" id="moon-toggle-desktop" onclick="switchToDark()">🌙</span>
 		</div>
 	</div>
-	<!-- /Light/Dark Switcher -->
+	<!-- /Desktop Light/Dark Switcher -->
 	
 	<!-- Overlay -->
 	<div class="right_bar_overlay"></div>
@@ -384,6 +789,22 @@
 					</div>
 					<!-- Image overlay for expanded view -->
 					<div class="image-overlay" onclick="closeExpandedImage()"></div>
+					
+					
+					<!-- Mobile Animation Title (hidden on desktop) -->
+					<div class="mobile-animation-title">
+						<h4>Hello! I'm a</h4>
+						<h3>
+							<span class="cd-headline clip">
+								<span class="cd-words-wrapper">
+								  <b class="is-visible">UI/UX Designer</b>
+									<b>Quality Assurance Engineer</b>
+								  <b>Fullstack Developer</b>
+								</span>
+							</span>
+						</h3>
+					</div>
+					
 					<h3><span>Dinuja</span> Jeyarasa</h3>
 					<p class="quote">Passionate IT student ,UI/UX Designer,QA Engineering and full-stack developer with expertise in modern web technologies.</p>
 					<ul class="contact_info">
@@ -465,7 +886,7 @@
 					<div class="section_title">
 						<h3>Biography</h3>
 					</div>
-					<p>I'm a motivated and confident third-year Information Technology undergraduate at the University of Moratuwa. I’m passionate about IT, web, and app development, and I thrive in collaborative environments. I’m driven to deliver high-quality results and contribute meaningfully to any team or organization I join.</p>
+					<p>I'm a motivated and confident third-year Information Technology undergraduate at the University of Moratuwa. I’m passionate about IT, web and app development, quality assurance engineering, and I thrive in collaborative environments. I’m driven to deliver high-quality results and contribute meaningfully to any team or organization I join.</p>
 					
 				</section>
 				<!-- /CV: Biography Section -->
@@ -904,7 +1325,7 @@
 	<div class="entry">
 	  <a class="popup-link" href="#" data-project="universal-academy">
 		<img src="img/portfolio/universal_science_academy_logo.png" alt="Universal Science Academy Logo" style="height:200px;width:100%;object-fit:contain;background:#fff;display:block;border-radius:16px;" />
-		<div class="main" data-bg-img="img/portfolio/1.jpg"></div>
+		<div class="main" data-bg-img="img/portfolio/universal_science_academy_logo.png"></div>
 		<div class="mobile_title">
 		  <h3>Universal Science Academy</h3>
 		  <span>Educational Website</span>
@@ -1001,8 +1422,8 @@
 								<div class="inner">
 									<div class="entry">
 			<a class="zoom" href="#" data-project="shopping-website">
-				<img src="https://via.placeholder.com/400x200/6366f1/ffffff?text=Shopping+Website" alt="Shopping Website" />
-				<div class="main" data-bg-img="img/blog/5.jpg"></div>
+				<img src="img/portfolio/shopping_website.svg" alt="Shopping Website" style="height:200px;width:100%;object-fit:cover;border-radius:16px;" />
+				<div class="main" data-bg-img="img/portfolio/shopping_website.svg"></div>
 				<div class="mobile_title">
 					<h3>Shopping Website</h3>
 					<span>E-commerce Platform</span>
@@ -1844,12 +2265,23 @@ function sendMessage(event) {
   sendBtn.style.pointerEvents = 'none';
   sendBtn.style.opacity = '0.7';
   
-  // Prepare template parameters
+  // Prepare template parameters with formatted message
+  const userName = document.getElementById('name').value.trim();
+  const userEmail = document.getElementById('email').value.trim();
+  const userPhone = document.getElementById('phone').value.trim() || 'Not provided';
+  const userMessage = document.getElementById('message').value.trim();
+  
+  // Create formatted message string
+  const formattedMessage = `Name: ${userName}
+Email: ${userEmail}
+Phone: ${userPhone}
+Message: ${userMessage}`;
+
   const templateParams = {
-    from_name: document.getElementById('name').value.trim(),
-    from_email: document.getElementById('email').value.trim(),
-    phone: document.getElementById('phone').value.trim() || 'Not provided',
-    message: document.getElementById('message').value.trim(),
+    from_name: userName,
+    from_email: userEmail,
+    phone: userPhone,
+    message: formattedMessage,
     to_email: 'dinujajayarasa@gmail.com'
   };
   
